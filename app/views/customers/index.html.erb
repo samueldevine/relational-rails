@@ -1,0 +1,8 @@
+<a href="/">Back to Main Page</a>
+<br>
+<br>
+
+<h1>All Our Wonderful Customers!</h1>
+<% @customers.each do |customer| %>
+  <h3><a href="/customers/<%= customer.id %>"><%= customer.first_name %> <%= customer.last_name %></h3>
+<% end %>
