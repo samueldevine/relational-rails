@@ -2,13 +2,13 @@ require 'rails_helper'
 
 RSpec.describe 'customer show page', type: :feature do
   it 'can show a single customer' do
-    customer_1 = Customer.new({
+    customer_1 = Customer.create!({
       first_name: 'Chaz',
       last_name: 'Simons',
       address: '1600 Pennsylvania',
       over_21: true
       })
-    customer_2 = Customer.new({
+    customer_2 = Customer.create!({
       first_name: 'Michael',
       last_name: 'Jackson',
       address: '1234 Neverland',
