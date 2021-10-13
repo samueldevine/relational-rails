@@ -1,0 +1,9 @@
+<h1>Employees of: <%= @restaurant.name %></h1>
+
+<%= @employees.each do |employee| %>
+    <h4><%= employee.first_name %> <%= employee.last_name %></h4>
+    <ul>
+        <li>Current Employee? <%= @employee.currently_employed %></li>
+        <li>Wage: $<%= @employee.wage %> per hour</li>
+    </ul>
+<% end %>

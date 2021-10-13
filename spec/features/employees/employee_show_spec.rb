@@ -7,13 +7,13 @@ RSpec.describe 'Employees Show Page' do
                 first_name: 'Michael',
                 last_name: 'Scott',
                 currently_employed: true,
-                wage: 15.00,
+                wage: 15.00
             )
             employee_2 = Employee.create!(
                 first_name: 'Michael',
                 last_name: 'Jordan',
                 currently_employed: true,
-                wage: 45.00,
+                wage: 45.00
             )
             visit "/employees/#{employee_1.id}"
 

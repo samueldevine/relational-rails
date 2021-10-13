@@ -21,5 +21,31 @@ RSpec.describe 'Restaurants Show Page' do
 
             expect(page).to_not have_content(restaurant_2.name)
         end
+
+        it 'shows all employees associated with the restaurant' do
+            restaurant = Restaurant.create!(
+                name: 'Watercourse Foods',
+                liquor_license: true,
+                menu_items: 15,
+            )
+            restaurant.employees.create!(
+                first_name: 'Michael',
+                last_name: 'Scott',
+                currently_employed: true,
+                wage: 15.00
+            )
+            restaurant.employees.create!(
+                first_name: 'Michael',
+                last_name: 'Jordan',
+                currently_employed: true,
+                wage: 45.00
+            )
+            visit "/restaurants/#{restaurant.id}/employees"
+
+            save_and_open_page
+
+            expect(page).to have_content(employee1.last_name)
+            expect(page).to have_content(employee2.last_name)
+        end
     end
 end
