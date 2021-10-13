@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   get '/customers/:id', to: 'customers#show'
 
   get '/restaurants', to: 'restaurants#index'
+  get '/restaurants/:id', to: 'restaurants#show'
 end
