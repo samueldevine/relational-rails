@@ -1,0 +1,11 @@
+<h1>All Employees</h1>
+
+<% @employees.each do |employee| %>
+    <p><%= employee.first_name %> <%= employee.last_name %></p>
+    <ul>
+        <li>Currently employed? <%= employee.currently_employed %></li>
+        <li>Wage: $<%= employee.wage %></li>
+    </ul>
+<% end %>
+
+<hr>
