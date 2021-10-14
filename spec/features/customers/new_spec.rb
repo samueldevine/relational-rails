@@ -16,6 +16,22 @@ RSpec.describe 'customer create' do
     fill_in 'customer[address]', with: '1234 Cool Guy Lane'
     select "Yes", :from => "over_21"
     fill_in 'customer[rewards]', with: '1000'
-    save_and_open_page
+  end
+
+  it 'creates a customer with a click of a button' do
+    visit '/customers'
+    click_link 'New Customer'
+    fill_in 'customer[first_name]', with: 'Chaz'
+    fill_in 'customer[last_name]', with: 'Simons'
+    fill_in 'customer[address]', with: '1234 Cool Guy Lane'
+    select "Yes", :from => "over_21"
+    fill_in 'customer[rewards]', with: '1000'
+
+    click_button "Create Customer"
+
+    visit '/customers'
+
+    expect(page).to have_content("Chaz Simons")
+    expect(page).to_not have_content("1234 Cool Guy Lane")
   end
 end
