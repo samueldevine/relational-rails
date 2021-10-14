@@ -13,7 +13,8 @@ Rails.application.routes.draw do
 
   get '/restaurants', to: 'restaurants#index'
   get '/restaurants/:id', to: 'restaurants#show'
-  get '/restaurants/:id/employees', to: 'restaurants#show_employees'
+  get '/restaurants/:id/employees', to: 'employees#by_restaurant'
+  
   get '/employees', to: 'employees#index'
   get '/employees/:id', to: 'employees#show'
 end

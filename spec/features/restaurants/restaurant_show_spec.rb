@@ -28,24 +28,24 @@ RSpec.describe 'Restaurants Show Page' do
                 liquor_license: true,
                 menu_items: 15,
             )
-            restaurant.employees.create!(
+            ee1 = restaurant.employees.create!(
                 first_name: 'Michael',
                 last_name: 'Scott',
                 currently_employed: true,
                 wage: 15.00
             )
-            restaurant.employees.create!(
+            ee2 = restaurant.employees.create!(
                 first_name: 'Michael',
                 last_name: 'Jordan',
-                currently_employed: true,
+                currently_employed: false,
                 wage: 45.00
             )
             visit "/restaurants/#{restaurant.id}/employees"
 
             save_and_open_page
 
-            expect(page).to have_content(employee1.last_name)
-            expect(page).to have_content(employee2.last_name)
+            expect(page).to have_content(ee1.last_name)
+            expect(page).to have_content(ee2.last_name)
         end
     end
 end
