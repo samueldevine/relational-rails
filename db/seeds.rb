@@ -20,22 +20,22 @@ restaurants = Restaurant.create([{
     menu_items: 10
 }])
 
-employees = Employee.create({
+employees = Employee.create([{
     first_name: 'Michael',
     last_name: 'Bluth',
     currently_employed: true,
-    wage: 25.00,
+    wage: 25.54,
     restaurant_id: 1
 },{
     first_name: 'Michael',
     last_name: 'Scott',
     currently_employed: false,
-    wage: 20.00,
+    wage: 20.19,
     restaurant_id: 2
 },{
     first_name: 'Michael',
     last_name: 'Jordan',
     currently_employed: true,
-    wage: 45.00,
+    wage: 45.87,
     restaurant_id: 3
-})
+}])

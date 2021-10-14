@@ -1,0 +1,15 @@
+<a href="/">Back to Main Page</a>
+
+<h1>Employees of: <%= @restaurant.name %></h1>
+
+<% @employees.each do |employee| %>
+    <h4><%= employee.first_name %> <%= employee.last_name %></h4>
+    <ul>
+        <% if employee.currently_employed %>    
+            <li>Current Employee</li>
+            <li>Wage: $<%= employee.wage %> per hour</li>
+        <% else %>
+            <li>Former Employee<br>(wages hidden)</li>
+        <% end %>
+    </ul>
+<% end %>
