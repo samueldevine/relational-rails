@@ -3,7 +3,7 @@
 <h1>Employees of: <%= @restaurant.name %></h1>
 
 <% @restaurant.employees.each do |employee| %>
-  <h4><%= link_to employee.first_name, "/employees/#{employee.id}" %> <%= link_to employee.last_name, "/employees/#{employee.id}" %></h4>
+  <a href="/employees/<%= employee.id %>"><%= employee.first_name %> <%= employee.last_name %></a>
   <ul>
     <% if employee.currently_employed %>    
       <li>Current Employee</li>
