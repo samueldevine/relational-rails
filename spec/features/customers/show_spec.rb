@@ -6,13 +6,15 @@ RSpec.describe 'customer show page', type: :feature do
       first_name: 'Chaz',
       last_name: 'Simons',
       address: '1600 Pennsylvania',
-      over_21: true
+      over_21: true,
+      rewards: 100
       })
     customer_2 = Customer.create!({
       first_name: 'Michael',
       last_name: 'Jackson',
       address: '1234 Neverland',
-      over_21: true
+      over_21: true,
+      rewards: 0
       })
 
     visit "/customers/#{customer_1.id}"
@@ -26,13 +28,15 @@ RSpec.describe 'customer show page', type: :feature do
       first_name: 'Chaz',
       last_name: 'Simons',
       address: '1600 Pennsylvania',
-      over_21: true
+      over_21: true,
+      rewards: 100
       })
     customer_2 = Customer.create!({
       first_name: 'Michael',
       last_name: 'Jackson',
       address: '1234 Neverland',
-      over_21: true
+      over_21: true,
+      rewards: 0
       })
     order_1 = customer_1.orders.create({
       special_instructions: 'no pickles',
@@ -51,7 +55,7 @@ RSpec.describe 'customer show page', type: :feature do
       })
 
     visit "/customers/#{customer_1.id}"
-    save_and_open_page
+    
     expect(page).to have_content(customer_1.first_name)
     expect(page).to have_content("Total Orders: 2")
     expect(page).to_not have_content("extra pickles")
@@ -62,13 +66,15 @@ RSpec.describe 'customer show page', type: :feature do
       first_name: 'Chaz',
       last_name: 'Simons',
       address: '1600 Pennsylvania',
-      over_21: true
+      over_21: true,
+      rewards: 100
       })
     customer_2 = Customer.create!({
       first_name: 'Michael',
       last_name: 'Jackson',
       address: '1234 Neverland',
-      over_21: true
+      over_21: true,
+      rewards: 0
       })
     order_1 = customer_1.orders.create({
       special_instructions: 'no pickles',
@@ -82,7 +88,8 @@ RSpec.describe 'customer show page', type: :feature do
       })
 
     visit "/customers/#{customer_1.id}"
-    save_and_open_page
+
     click_link "View Orders"
+    expect(page).to have_content(order_1.special_instructions)
   end
 end

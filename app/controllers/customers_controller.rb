@@ -12,6 +12,7 @@ class CustomersController < ApplicationController
       last_name: params[:customer][:last_name],
       address: params[:customer][:address],
       over_21: params[:customer][:over_21],
+      rewards: params[:customer][:rewards]
       })
 
     customer.save
