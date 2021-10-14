@@ -1,6 +1,5 @@
 require 'rails_helper'
 
 RSpec.describe Restaurant do
-    context 'instance methods' do
-    end
+    it {should have_many :employees}
 end
