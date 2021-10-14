@@ -19,6 +19,10 @@ class CustomersController < ApplicationController
     redirect_to '/customers'
   end
 
+  def update
+    @customer = Customer.find(params[:id])
+  end
+
   def show
     @customer = Customer.find(params[:id])
   end

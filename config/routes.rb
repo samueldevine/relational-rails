@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   post '/customers', to: 'customers#create'
   get '/customers/:id', to: 'customers#show'
   get '/customers/:id/orders', to: 'customer_orders#index'
+  get '/customers/:id/edit', to: 'customers#update'
 
   get '/orders', to: 'orders#index'
   get '/orders/:id', to: 'orders#show'

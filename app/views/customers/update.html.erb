@@ -1,0 +1,19 @@
+<form action="/customers/<% @customer.id %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="PATCH">
+  <p>Make changes to the customer below:</p>
+  <p>First Name</p>
+  <input type='text' name='customer[first_name]' value="<%= @customer.first_name %>"">
+  <p>Last Name</p>
+  <input type='text' name='customer[last_name]' value="<%= @customer.last_name %>">
+  <p>Address</p>
+  <textarea name='customer[address]' value="<%= @customer.address %>"></textarea><br/>
+  <p>Are they over 21 years of age?</p>
+  <select id='customers' name='over_21' value="<%= @customer.over_21 %>">
+    <option value='true'>Yes</option>
+    <option value='false'>No</option>
+  </select>
+  <p>Rewards Points:</p>
+  <input type='integer' name='customer[rewards]' value="<%= @customer.rewards %>"><br/>
+  <input type='submit' value="Update Customer">
+</form>
