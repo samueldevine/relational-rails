@@ -42,8 +42,6 @@ RSpec.describe 'Restaurants Show Page' do
             )
             visit "/restaurants/#{restaurant.id}/employees"
 
-            save_and_open_page
-
             expect(page).to have_content(ee1.last_name)
             expect(page).to have_content(ee2.last_name)
         end
