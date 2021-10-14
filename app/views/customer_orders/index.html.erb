@@ -1,0 +1,11 @@
+<a href="/">Back to Main Page</a>
+<a href="/customers">Customers</a>
+
+
+<h1>Order history for: <%= @customer.first_name %></h1>
+
+<% @order.each do |order| %>
+  <p><a href="/orders/<%= order.id %>"><%= order.id %></a>
+    Special Instructions: <%= order.special_instructions %>
+  </p>
+<% end %>

@@ -1,10 +1,11 @@
-<a href="/">Back to Main Page</a>
-<a href="/orders">Orders</a>
+<a href="/">Back to Main Page</a><br>
+<a href="/orders">Orders</a><br>
+<a href="/customers">Customers</a><hr>
 
 <br>
 <br>
 
 <h1>All Our Wonderful Customers!</h1>
 <% @customers.each do |customer| %>
-  <h3><a href="/customers/<%= customer.id %>"><%= customer.first_name %> <%= customer.last_name %></h3>
+  <h3><a href="/customers/<%= customer.id %>"><%= customer.first_name %> <%= customer.last_name %> Joined on: <%= customer.created_at %></h3>
 <% end %>

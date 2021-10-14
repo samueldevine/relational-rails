@@ -6,12 +6,13 @@ Rails.application.routes.draw do
   get '/customers/new', to: 'customers#new'
   post '/customers', to: 'customers#create'
   get '/customers/:id', to: 'customers#show'
-  get '/customers/:customer_id/orders', to: 'orders#by_customer'
+  get '/customers/:id/orders', to: 'customer_orders#index'
 
   get '/orders', to: 'orders#index'
   get '/orders/:id', to: 'orders#show'
 
   get '/restaurants', to: 'restaurants#index'
+
   get '/restaurants/:restaurant_id', to: 'restaurants#show'
   get '/restaurants/:restaurant_id/employees', to: 'restaurant_employees#index'
   
