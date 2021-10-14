@@ -23,8 +23,5 @@ RSpec.describe 'Restaurants Index' do
     expect(page).to_not have_content(@restaurant_1.menu_items)
   end
 
-  it 'restaurant names are in reverse chronological order' do
-    visit '/restaurants'
-    save_and_open_page
-  end
+  it 'restaurant names are in reverse chronological order'
 end

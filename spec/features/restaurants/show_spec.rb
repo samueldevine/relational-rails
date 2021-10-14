@@ -33,6 +33,14 @@ RSpec.describe 'Restaurants Show Page' do
       visit "/restaurants/#{@restaurant_1.id}"
 
       expect(page).to have_content("Number of employees: 3")
-    end 
+    end
+    
+    it 'links to the restaurant_employees index' do
+      visit "/restaurants/#{@restaurant_1.id}"
+      
+      click_on "All #{@restaurant_1.name} Employees"
+
+      expect(current_path).to eq("/restaurants/#{@restaurant_1.id}/employees")
+    end
   end
 end
