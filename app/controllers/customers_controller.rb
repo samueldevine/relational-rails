@@ -20,7 +20,8 @@ class CustomersController < ApplicationController
   end
 
   def update
-    @customer = Customer.find(params[:id])
+    customer = Customer.find(params[:id])
+    redirect_to "/customers/#{customer.id}"
   end
 
   def show
