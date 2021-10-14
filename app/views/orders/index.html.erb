@@ -1,0 +1,9 @@
+<a href="/">Back to Main Page</a>
+<a href="/customers">Customers</a>
+
+
+<h1>Order Up!</h1>
+
+<% @orders.each do |order| %>
+<h3><a href="/orders/<%= order.id %>"><%= order.special_instructions %></h3>
+<% end %>
