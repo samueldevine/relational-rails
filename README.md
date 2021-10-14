@@ -1,8 +1,7 @@
 # README
 
-## Mod 2 Paired Project: Relational Rails
+### Mod 2 Paired Project: Relational Rails
 ### Chaz Simons & Sam Devine
-
 ---
 
 The goal of this project is to begin exploring the Rails environment, including MVC and ORMs, ActiveRecord associations, and model and feature testing.
