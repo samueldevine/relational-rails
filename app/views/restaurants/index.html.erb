@@ -2,6 +2,10 @@
 
 <h1>All Restaurants</h1>
 
-<% @restaurants.each do |restaurant| %>
-  <h3><%= restaurant.name %></h3>
+<% sorted = @restaurants.sort_by do |restaurant| %>
+  <% restaurant.created_at %>
+<% end.reverse! %>
+
+<% sorted.each do |restaurant| %>
+  <h4><%= restaurant.name %> --- created at <%= restaurant.created_at %></h4>
 <% end %>
