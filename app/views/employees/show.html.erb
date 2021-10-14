@@ -2,9 +2,9 @@
 
 <h1><%= @employee.first_name %> <%= @employee.last_name %></h1>
 <ul>
-    <% if employee.currently_employed %>    
+    <% if @employee.currently_employed %>    
         <li>Current Employee</li>
-        <li>Wage: $<%= employee.wage %> per hour</li>
+        <li>Wage: $<%= @employee.wage %> per hour</li>
     <% else %>
         <li>Former Employee<br>(wages hidden)</li>
     <% end %>
