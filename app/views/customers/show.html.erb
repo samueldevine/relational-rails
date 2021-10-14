@@ -7,5 +7,7 @@
   <%= @customer.last_name %><br>
   <%= @customer.address %><br>
   <%= @customer.over_21 %><br>
-  <%= @customer.orders_placed %>
+  <% @customer.orders_placed %>
+  Total Orders: <%= @customer.orders.count %>
+  <a href="/customers/#{@customer.id}/orders"</a>View Orders
 </p>
