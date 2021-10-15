@@ -1,0 +1,14 @@
+<form action="/orders" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <p>Enter a new order:</p>
+  <p>Special Instructions:</p>
+  <textarea name='special_instructions'></textarea><br>
+  <p>Number of Items:</p>
+  <input type='number' name='number_of_items'>
+  <p>Paid?:</p>
+  <select id='orders' name='paid'>
+    <option value='true'>Yes</option>
+    <option value='false'>No</option>
+  </select><br>
+  <input type='submit' value="Create Order">
+</form>
