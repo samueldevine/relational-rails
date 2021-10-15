@@ -3,6 +3,10 @@ class RestaurantsController < ApplicationController
     @restaurants = Restaurant.all
   end
 
+  def show
+    @restaurant = Restaurant.find(params[:restaurant_id])
+  end
+
   def new
   end
   
@@ -16,7 +20,17 @@ class RestaurantsController < ApplicationController
     redirect_to '/restaurants'
   end
 
-  def show
+  def edit
     @restaurant = Restaurant.find(params[:restaurant_id])
+  end
+
+  def update
+    restaurant = Restaurant.find(params[:restaurant_id])
+    restaurant.update({
+      name:           params[:restaurant][:name],
+      liquor_license: params[:restaurant][:liquor_license],
+      menu_items:     params[:restaurant][:menu_items]
+    })
+    redirect_to "/restaurants/#{restaurant.id}"
   end
 end

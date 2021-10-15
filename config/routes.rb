@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   post '/restaurants', to: 'restaurants#create'
   get '/restaurants/:restaurant_id', to: 'restaurants#show'
   get '/restaurants/:restaurant_id/employees', to: 'restaurant_employees#index'
+  get '/restaurants/:restaurant_id/edit', to: 'restaurants#edit'
+  patch '/restaurants/:restaurant_id', to: 'restaurants#update'
   
   get '/employees', to: 'employees#index'
   get '/employees/:id', to: 'employees#show'
