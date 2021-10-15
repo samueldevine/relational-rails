@@ -19,8 +19,8 @@ RSpec.describe 'Restaurants Index' do
 
     expect(page).to have_content(@restaurant_1.name)
     expect(page).to have_content(@restaurant_2.name)
-    expect(page).to_not have_content(@restaurant_1.liquor_license)
-    expect(page).to_not have_content(@restaurant_1.menu_items)
+    expect(page).to_not have_content("Serves Alcohol?")
+    expect(page).to_not have_content("Number of menu items:")
   end
 
   it 'restaurant names are in reverse chronological order'
