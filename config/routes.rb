@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get '/orders', to: 'orders#index'
   get '/orders/:id', to: 'orders#show'
   get '/orders/:id/edit', to: 'orders#edit'
+  patch '/orders/:id', to: 'orders#update'
 
   get '/restaurants', to: 'restaurants#index'
   get '/restaurants/:id', to: 'restaurants#show'

@@ -48,8 +48,6 @@ RSpec.describe 'Customer Orders Index' do
 
     click_button "Create Order"
 
-    visit "/customers/#{customer.id}/orders"
-
     expect(page).to have_content("extra onions")
   end
 

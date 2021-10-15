@@ -25,7 +25,7 @@ RSpec.describe 'customer update' do
 
     visit "/customers/#{customer_1.id}"
     click_link "Update Customer"
-    save_and_open_page
+    
     fill_in 'customer[first_name]', with: 'King'
     fill_in 'customer[last_name]', with: 'Cool'
     fill_in 'customer[address]', with: '42 Super Cool Guy Rd'
@@ -50,7 +50,7 @@ RSpec.describe 'customer update' do
     fill_in 'customer[rewards]', with: '300'
 
     click_button "Update Customer"
-    
+
     expect(page).to have_content("King Cool")
     expect(page).to_not have_content("Chaz Simons")
   end
