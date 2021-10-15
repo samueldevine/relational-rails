@@ -12,9 +12,10 @@ Rails.application.routes.draw do
   get '/orders/:id', to: 'orders#show'
 
   get '/restaurants', to: 'restaurants#index'
-  get '/restaurants/:id', to: 'restaurants#show'
-  get '/restaurants/:id/employees', to: 'employees#by_restaurant'
 
+  get '/restaurants/:restaurant_id', to: 'restaurants#show'
+  get '/restaurants/:restaurant_id/employees', to: 'restaurant_employees#index'
+  
   get '/employees', to: 'employees#index'
   get '/employees/:id', to: 'employees#show'
 end

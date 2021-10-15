@@ -1,7 +1,7 @@
-<a href="/">Back to Main Page</a> | <a href="/employees">Employees</a>
+<a href="/">Back to Main Page</a> | <a href="/restaurants">All Restaurants</a> | <a href="/employees">All Employees</a>
 
 <h1>All Restaurants</h1>
 
 <% @restaurants.each do |restaurant| %>
-    <h3><%= restaurant.name %></h3>
+  <h4><%= link_to restaurant.name, "/restaurants/#{restaurant.id}" %> --- created at <%= restaurant.created_at %></h4>
 <% end %>

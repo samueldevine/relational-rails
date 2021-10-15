@@ -1,11 +1,11 @@
-<a href="/">Back to Main Page</a> | <a href="/employees">All Employees</a>
+<a href="/">Back to Main Page</a> | <a href="/restaurants">All Restaurants</a> | <a href="/employees">All Employees</a>
 
 <h1><%= @employee.first_name %> <%= @employee.last_name %></h1>
 <ul>
-    <% if @employee.currently_employed %>    
-        <li>Current Employee</li>
-        <li>Wage: $<%= @employee.wage %> per hour</li>
-    <% else %>
-        <li>Former Employee<br>(wages hidden)</li>
-    <% end %>
+  <% if @employee.currently_employed %>    
+    <li>Current Employee</li>
+    <li>Wage: $<%= @employee.wage %> per hour</li>
+  <% else %>
+    <li>Former Employee<br>(wages hidden)</li>
+  <% end %>
 </ul>
