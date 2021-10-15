@@ -1,6 +1,6 @@
 <form action="/customers/<%= @customer.id %>" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="hidden" name="_method" value="PATCH">
+  <input type="hidden" name="_method" value="PATCH"/>
   <p>Make changes to the customer below:</p>
   <p>First Name</p>
   <input type='text' name='customer[first_name]'>

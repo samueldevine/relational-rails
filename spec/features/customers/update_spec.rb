@@ -22,8 +22,10 @@ RSpec.describe 'customer update' do
       over_21: true,
       rewards: 100
       })
+
+    visit "/customers/#{customer_1.id}"
+    click_link "Update Customer"
     save_and_open_page
-    visit "/customers/#{customer_1.id}/edit"
     fill_in 'customer[first_name]', with: 'King'
     fill_in 'customer[last_name]', with: 'Cool'
     fill_in 'customer[address]', with: '42 Super Cool Guy Rd'
@@ -31,7 +33,7 @@ RSpec.describe 'customer update' do
     fill_in 'customer[rewards]', with: '300'
   end
 
-  xit 'can submit updates to customer attributes' do
+  it 'can submit updates to customer attributes' do
     customer_1 = Customer.create({
       first_name: 'Chaz',
       last_name: 'Simons',
@@ -48,7 +50,7 @@ RSpec.describe 'customer update' do
     fill_in 'customer[rewards]', with: '300'
 
     click_button "Update Customer"
-    visit "/customers/#{customer_1.id}/edit"
+    
     expect(page).to have_content("King Cool")
     expect(page).to_not have_content("Chaz Simons")
   end

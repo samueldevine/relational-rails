@@ -18,6 +18,7 @@ RSpec.describe 'customer show page', type: :feature do
       })
 
     visit "/customers/#{customer_1.id}"
+    
     expect(page).to have_content(customer_1.address)
     expect(page).to have_content(customer_1.last_name)
     expect(page).to_not have_content(customer_2.first_name)
