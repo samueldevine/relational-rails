@@ -8,7 +8,7 @@ class CustomerOrdersController < ApplicationController
   end
 
   def create
-    order = Order.create({
+    order = Order.new({
       special_instructions: params[:special_instructions],
       number_of_items: params[:number_of_items],
       paid: params[:paid]

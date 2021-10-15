@@ -9,13 +9,14 @@ Rails.application.routes.draw do
 
   get '/customers/:id/orders', to: 'customer_orders#index'
   get '/customers/:id/orders/new', to: 'customer_orders#new'
-  post '/orders', to: 'customer_orders#create'
-  
+  post '/customers/:id/orders', to: 'customer_orders#create'
+
   get '/customers/:id/edit', to: 'customers#edit'
   patch '/customers/:id', to: 'customers#update'
 
   get '/orders', to: 'orders#index'
   get '/orders/:id', to: 'orders#show'
+  get '/orders/:id/edit', to: 'orders#edit'
 
   get '/restaurants', to: 'restaurants#index'
   get '/restaurants/:id', to: 'restaurants#show'
