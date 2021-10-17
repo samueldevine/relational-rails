@@ -18,6 +18,7 @@ RSpec.describe 'orders update' do
     visit "/orders/#{order_1.id}"
 
     click_link "Update Order"
+    expect(current_path).to eq "/orders/#{order_1.id}/edit"
   end
 
   it 'provides a form to update attributes' do
@@ -42,6 +43,7 @@ RSpec.describe 'orders update' do
     select "No", :from => "paid"
 
     click_button "Update Order"
+    expect(current_path).to eq "/orders/#{order_1.id}"
   end
 
   it 'displays the updated information after submission' do

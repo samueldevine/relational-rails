@@ -7,4 +7,6 @@
 
 <% @orders.where(paid: true).each do |order| %>
 <h3><a href="/orders/<%= order.id %>"><%= order.special_instructions %></h3>
+  <a href="/orders/<%= order.id %>/edit">Update Order</a> | <a href="/orders/<%= order.id %>/delete">Delete Order</a>
+
 <% end %>

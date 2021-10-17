@@ -17,7 +17,7 @@ class OrdersController < ApplicationController
       paid: params[:paid]
       })
     order.save
-    # redirect_to "/customers/#{params[:customer_id]}/orders"
+    redirect_to "/customers/#{params[:customer_id]}/orders"
   end
 
   def edit

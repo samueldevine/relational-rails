@@ -39,3 +39,51 @@ employees = Employee.create([{
     wage: 45.87,
     restaurant_id: 3
 }])
+
+customers = Customer.create([{
+  first_name: 'Ricky',
+  last_name: 'Spanish',
+  address: '2424 Marina Lane, dock 12',
+  over_21: false,
+  rewards: 100
+},{
+  first_name: 'Jeanie',
+  last_name: 'Gold',
+  address: '657 Wedding Drive',
+  over_21: true,
+  rewards: 200
+},{
+  first_name: 'Matt',
+  last_name: 'Foley',
+  address: 'A van down by the river',
+  over_21: true,
+  rewards: 1500
+},{
+  first_name: 'Ruby',
+  last_name: 'Zeldastein',
+  address: '1313 Poltergeist St',
+  over_21: false,
+  rewards: 666
+}])
+
+orders = Order.create([{
+  special_instructions: 'Super spicy',
+  number_of_items: 5,
+  paid: false,
+  customer_id: 1
+},{
+  special_instructions: 'Crispy fries',
+  number_of_items: 1,
+  paid: true,
+  customer_id: 2
+},{
+  special_instructions: 'No bun just burger',
+  number_of_items: 3,
+  paid: true,
+  customer_id: 3
+},{
+  special_instructions: 'Drown it in sauce',
+  number_of_items: 7,
+  paid: false,
+  customer_id: 4
+}])

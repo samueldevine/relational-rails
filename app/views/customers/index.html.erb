@@ -6,8 +6,12 @@
 <br>
 
 <h1>All Our Wonderful Customers!</h1>
+<hr>
 <% @customers.order(created_at: :desc).each do |customer| %>
   <h3><a href="/customers/<%= customer.id %>"><%= customer.first_name %> <%= customer.last_name %></a> Joined on: <%= customer.created_at %></h3>
+  <br>
+  <a href="/customers/<%= customer.id %>/edit">Update Customer</a> | <a href="/customers/<%= customer.id %>/delete">Delete Customer</a>
+<hr>
 
 <% end %>
-<p><a href="/customers/new">New Customer</a></p>
+<h2><a href="/customers/new">New Customer</a></h2>

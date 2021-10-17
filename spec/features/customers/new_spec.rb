@@ -6,6 +6,8 @@ RSpec.describe 'customer create' do
     visit '/customers'
 
     click_link 'New Customer'
+
+    expect(current_path).to eq "/customers/new"
   end
 
   it 'provides a form to create a customer' do
@@ -16,6 +18,8 @@ RSpec.describe 'customer create' do
     fill_in 'customer[address]', with: '1234 Cool Guy Lane'
     select "Yes", :from => "over_21"
     fill_in 'customer[rewards]', with: '1000'
+
+    expect(current_path).to eq "/customers/new"
   end
 
   it 'creates a customer with a click of a button' do

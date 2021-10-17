@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'orders show page', type: :feature do
+RSpec.describe 'orders show page' do
   it 'can show a single order' do
     customer = Customer.create!({
       first_name: 'Chaz',
