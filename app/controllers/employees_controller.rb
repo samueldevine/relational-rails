@@ -12,7 +12,6 @@ class EmployeesController < ApplicationController
   end
 
   def update
-    binding.pry
     employee = find_employee
     employee.update(employee_params)
     redirect_to "/employees/#{employee.id}"
