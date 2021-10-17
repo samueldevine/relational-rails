@@ -1,0 +1,16 @@
+<form action="/restaurants/<%= @restaurant.id %>/employees" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <p>Enter your new employee's information below:</p>
+  <p>First Name</p>
+  <input type='text' name='employee[first_name]'>
+  <p>Last Name</p>
+  <input type='text' name='employee[last_name]'>
+  <p>Does this employee currently work for the restaurant?</p>
+  <input type='radio' name='employee[currently_employed]' value='Yes'>
+    <label for='Yes'>Yes</label><br>
+  <input type='radio' name='employee[currently_employed]' value='No'>
+    <label for='No'>No</label><br>
+  <p>What is this employee's wage?</p>
+  <input type='float' name='employee[wage]'><br/>
+  <input type='submit' name='Create Employee'/>
+</form>

@@ -15,10 +15,13 @@ Rails.application.routes.draw do
   get '/restaurants/new', to: 'restaurants#new'
   post '/restaurants', to: 'restaurants#create'
   get '/restaurants/:restaurant_id', to: 'restaurants#show'
-  get '/restaurants/:restaurant_id/employees', to: 'restaurant_employees#index'
   get '/restaurants/:restaurant_id/edit', to: 'restaurants#edit'
   patch '/restaurants/:restaurant_id', to: 'restaurants#update'
   
+  get '/restaurants/:restaurant_id/employees', to: 'restaurant_employees#index'
+  get '/restaurants/:restaurant_id/employees/new', to: 'restaurant_employees#new'
+  post '/restaurants/:restaurant_id/employees', to: 'restaurant_employees#create'
+
   get '/employees', to: 'employees#index'
   get '/employees/:id', to: 'employees#show'
 end
