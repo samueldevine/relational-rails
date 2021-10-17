@@ -2,11 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'customer create' do
   it 'displays a link to create a new customer from the index page' do
-
     visit '/customers'
-
     click_link 'New Customer'
-
     expect(current_path).to eq "/customers/new"
   end
 
@@ -30,9 +27,7 @@ RSpec.describe 'customer create' do
     fill_in 'customer[address]', with: '1234 Cool Guy Lane'
     select "Yes", :from => "over_21"
     fill_in 'customer[rewards]', with: '1000'
-
     click_button "Create Customer"
-
     visit '/customers'
 
     expect(page).to have_content("Chaz Simons")

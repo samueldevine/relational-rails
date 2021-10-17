@@ -9,9 +9,10 @@ Rails.application.routes.draw do
   get   '/customers/:id/edit', to: 'customers#edit'
   patch '/customers/:id',      to: 'customers#update'
 
-  get  '/customers/:id/orders',     to: 'customer_orders#index'
-  get  '/customers/:id/orders/new', to: 'customer_orders#new'
-  post '/customers/:id/orders',     to: 'customer_orders#create'
+  get  '/customers/:id/orders',             to: 'customer_orders#index'
+  get  '/customers/:id/orders/new',         to: 'customer_orders#new'
+  post '/customers/:id/orders',             to: 'customer_orders#create'
+  get '/customers/:id/orders/alpha_sorted', to: 'customer_orders#index_sorted'
 
   get   '/orders',          to: 'orders#index'
   get   '/orders/:id',      to: 'orders#show'

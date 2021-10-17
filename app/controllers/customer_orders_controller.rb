@@ -18,4 +18,8 @@ class CustomerOrdersController < ApplicationController
     new_order.save
     redirect_to "/customers/#{@customer.id}/orders"
   end
+
+  def index_sorted
+    @customer = Customer.find(params[:id])
+  end
 end

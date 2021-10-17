@@ -1,14 +1,12 @@
 <a href="/">Main Page</a><br>
 <a href="/customers">Customers</a><hr>
 
-
-
 <h1>Order history for: <%= @customer.first_name %></h1>
 
-<% @order.each do |order| %>
+<% @customer.orders.order(:special_instructions).each do |order| %>
   <p><a href="/orders/<%= order.id %>"><%= order.id %></a>
     Special Instructions: <%= order.special_instructions %>
   </p>
 <% end %>
-<a href="/customers/<%= @customer.id %>/orders/alpha_sorted">Sort Alphabetically by Special Instructions</a><br>
+
 <a href="/customers/<%= @customer.id %>/orders/new">Create Order</a>
