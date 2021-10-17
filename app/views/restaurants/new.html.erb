@@ -1,0 +1,14 @@
+<form action="/restaurants" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <p>Enter a new restaurant:</p>
+  <p>Name</p>
+  <input type='text' name='restaurant[name]'>
+  <p>Can this restaurant serve alcohol?</p>
+  <input type='radio' name='restaurant[liquor_license]' value='Yes'>
+    <label for='Yes'>Yes</label><br>
+  <input type='radio' name='restaurant[liquor_license]' value='No'>
+    <label for='No'>No</label><br>
+  <p>Number of menu items:</p>
+  <input type='integer' name='restaurant[menu_items]'><br/>
+  <input type='submit' name='Create Restaurant'/>
+</form>

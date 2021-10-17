@@ -5,3 +5,5 @@
 <p>Number of menu items: <%= @restaurant.menu_items %></p>
 <p>Number of employees: <%= @restaurant.employees.count %></p>
 <p><%= link_to "All #{@restaurant.name} Employees", "/restaurants/#{@restaurant.id}/employees" %></p>
+<br>
+<a href="/restaurants/<%= @restaurant.id %>/edit">Update <%= @restaurant.name %></a>

@@ -2,6 +2,8 @@
 
 <h1>All Restaurants</h1>
 
-<% @restaurants.each do |restaurant| %>
-  <h4><%= link_to restaurant.name, "/restaurants/#{restaurant.id}" %> --- created at <%= restaurant.created_at %></h4>
+<% @restaurants.order(created_at: :desc).each do |restaurant| %>
+  <h3><%= link_to restaurant.name, "/restaurants/#{restaurant.id}" %> --- created at <%= restaurant.created_at %></h3>
 <% end %>
+
+<a href="/restaurants/new">New Restaurant</a>
