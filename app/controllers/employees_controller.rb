@@ -1,14 +1,36 @@
 class EmployeesController < ApplicationController
-    def index
-        @employees = Employee.all
+  def index
+    @employees = Employee.all
+  end
+
+  def show
+    @employee = find_employee
+  end
+
+  def edit
+    @employee = find_employee
+  end
+
+  def update
+    employee = find_employee
+    employee.update(employee_params)
+    redirect_to "/employees/#{employee.id}"
+  end
+
+  private
+  
+    def find_employee
+      Employee.find(params[:id])
     end
 
-    def show
-        @employee = Employee.find(params[:id])
-    end
+    def employee_params
+      {
+        first_name:         params[:employee][:first_name],
+        last_name:          params[:employee][:last_name],
+        currently_employed: params[:employee][:currently_employed],
+        wage:               params[:employee][:wage]
+      }
 
-    def by_restaurant
-        @restaurant = Restaurant.find(params[:id])
-        @employees = Employee.where(restaurant_id: @restaurant.id)
+      params.require(:employee).permit(:first_name, :last_name, :currently_employed, :wage)
     end
 end

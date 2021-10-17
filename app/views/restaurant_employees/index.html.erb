@@ -1,8 +1,8 @@
 <a href="/">Back to Main Page</a> | <a href="/restaurants">All Restaurants</a> | <a href="/employees">All Employees</a>
 
-<h1>All Employees</h1>
+<h1>Employees of: <%= @restaurant.name %></h1>
 
-<% @employees.each do |employee| %>
+<% @restaurant.employees.each do |employee| %>
   <a href="/employees/<%= employee.id %>"><%= employee.first_name %> <%= employee.last_name %></a>
   <ul>
     <% if employee.currently_employed %>    
@@ -14,4 +14,4 @@
   </ul>
 <% end %>
 
-<hr>
+<a href="/restaurants/<%= @restaurant.id %>/employees/new">Create Employee</a>
