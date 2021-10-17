@@ -1,0 +1,15 @@
+<form action="/orders/<%= @order.id %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="PATCH"/>
+  <p>Make changes to an order:</p>
+  <p>Special Instructions:</p>
+  <textarea name='order[special_instructions]'></textarea><br>
+  <p>Number of Items:</p>
+  <input type='number' name='order[number_of_items]'>
+  <p>Paid?:</p>
+  <select id='orders' name='order[paid]'>
+    <option value='true'>Yes</option>
+    <option value='false'>No</option>
+  </select><br>
+  <input type='submit' value="Update Order">
+</form>

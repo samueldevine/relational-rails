@@ -1,6 +1,7 @@
-<form action="/customers" method="post">
+<form action="/customers/<%= @customer.id %>" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <p>Enter a new customer:</p>
+  <input type="hidden" name="_method" value="PATCH"/>
+  <p>Make changes to the customer below:</p>
   <p>First Name</p>
   <input type='text' name='customer[first_name]'>
   <p>Last Name</p>
@@ -14,11 +15,5 @@
   </select>
   <p>Rewards Points:</p>
   <input type='integer' name='customer[rewards]'><br/>
-  <input type='submit' value="Create Customer">
+  <input type='submit' value="Update Customer">
 </form>
-
-
-<!-- <input type='radio' name='restaurant[liquor_license]' value='Yes'>
-    <label for='Yes'>Yes</label><br>
-  <input type='radio' name='restaurant[liquor_license]' value='No'>
-    <label for='No'>No</label><br> -->

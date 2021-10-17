@@ -42,6 +42,8 @@ RSpec.describe 'customer index page', type: :feature do
 
     visit "/customers"
 
+    expect(customer_2.first_name).to appear_before(customer_1.first_name)
+
     expect(page).to have_content(customer_1.created_at)
     expect(page).to have_content(customer_2.created_at)
   end
