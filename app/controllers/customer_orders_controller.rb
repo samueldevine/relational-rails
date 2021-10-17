@@ -5,15 +5,17 @@ class CustomerOrdersController < ApplicationController
   end
 
   def new
+    @customer = Customer.find(params[:id])
   end
 
   def create
-    order = Order.new({
-      special_instructions: params[:special_instructions],
-      number_of_items: params[:number_of_items],
-      paid: params[:paid]
+    @customer = Customer.find(params[:id])
+    new_order = @customer.orders.create!({
+      special_instructions: params[:order][:special_instructions],
+      number_of_items: params[:order][:number_of_items],
+      paid: params[:order][:paid]
       })
-    order.save
-    redirect_to "/customers/#{params[:customer_id]}/orders"
+    new_order.save
+    redirect_to "/customers/#{@customer.id}/orders"
   end
 end

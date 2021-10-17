@@ -3,11 +3,11 @@
   <input type="hidden" name="_method" value="PATCH"/>
   <p>Make changes to an order:</p>
   <p>Special Instructions:</p>
-  <textarea name='special_instructions'></textarea><br>
+  <textarea name='order[special_instructions]'></textarea><br>
   <p>Number of Items:</p>
-  <input type='number' name='number_of_items'>
+  <input type='number' name='order[number_of_items]'>
   <p>Paid?:</p>
-  <select id='orders' name='paid'>
+  <select id='orders' name='order[paid]'>
     <option value='true'>Yes</option>
     <option value='false'>No</option>
   </select><br>

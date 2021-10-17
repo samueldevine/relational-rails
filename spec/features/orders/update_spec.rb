@@ -38,9 +38,9 @@ RSpec.describe 'orders update' do
     visit "/orders/#{order_1.id}"
     click_link "Update Order"
 
-    fill_in 'special_instructions', with: 'NO onions'
-    fill_in 'number_of_items', with: '5'
-    select "No", :from => "paid"
+    fill_in 'order[special_instructions]', with: 'NO onions'
+    fill_in 'order[number_of_items]', with: '5'
+    select "No", :from => "order[paid]"
 
     click_button "Update Order"
     expect(current_path).to eq "/orders/#{order_1.id}"
@@ -62,13 +62,13 @@ RSpec.describe 'orders update' do
 
     visit "/orders/#{order_1.id}/edit"
 
-    fill_in 'special_instructions', with: 'NO onions'
-    fill_in 'number_of_items', with: '5'
-    select "No", :from => "paid"
+    fill_in 'order[special_instructions]', with: 'NO onions'
+    fill_in 'order[number_of_items]', with: '5'
+    select "No", :from => "order[paid]"
 
     click_button "Update Order"
-
-    expect(page).to have_content("NO onions")
+    save_and_open_page
+    expect(page).to have_content("Special Instructions: NO onions")
     expect(page).to_not have_content("extra onions")
   end
 end
