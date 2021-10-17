@@ -18,6 +18,10 @@ class RestaurantEmployeesController < ApplicationController
     redirect_to "/restaurants/#{restaurant.id}/employees"
   end
 
+  def index_sorted
+    @restaurant = find_restaurant
+  end
+
   private
     def find_restaurant
       Restaurant.find(params[:restaurant_id])

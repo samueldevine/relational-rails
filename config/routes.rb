@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get '/restaurants/:restaurant_id/employees', to: 'restaurant_employees#index'
   get '/restaurants/:restaurant_id/employees/new', to: 'restaurant_employees#new'
   post '/restaurants/:restaurant_id/employees', to: 'restaurant_employees#create'
+  get '/restaurants/:restaurant_id/employees/alpha_sorted', to: 'restaurant_employees#index_sorted'
 
   get '/employees', to: 'employees#index'
   get '/employees/:id', to: 'employees#show'
