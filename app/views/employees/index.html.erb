@@ -1,16 +1,11 @@
 <a href="/">Back to Main Page</a> | <a href="/restaurants">All Restaurants</a> | <a href="/employees">All Employees</a>
 
-<h1>All Employees</h1>
+<h1>All Active Employees</h1>
 
 <% @employees.each do |employee| %>
   <a href="/employees/<%= employee.id %>"><%= employee.first_name %> <%= employee.last_name %></a>
   <ul>
-    <% if employee.currently_employed %>    
-      <li>Current Employee</li>
-      <li>Wage: $<%= employee.wage %> per hour</li>
-    <% else %>
-      <li>Former Employee<br>(wages hidden)</li>
-    <% end %>
+    <li>Wage: $<%= employee.wage %> per hour</li>
   </ul>
 <% end %>
 
