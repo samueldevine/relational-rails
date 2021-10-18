@@ -3,10 +3,17 @@
 <h1>All Active Employees</h1>
 
 <% @employees.each do |employee| %>
-  <a href="/employees/<%= employee.id %>"><%= employee.first_name %> <%= employee.last_name %></a>
+  
+  <h4><a href="/employees/<%= employee.id %>"><%= employee.first_name %> 
+  <%= employee.last_name %></a> ---
+  <%= link_to 'Edit',"/employees/#{employee.id}/edit" %></h4>
+
   <ul>
+    <li>Current Employee</li>
     <li>Wage: $<%= employee.wage %> per hour</li>
   </ul>
+
+  <hr>
 <% end %>
 
 <hr>

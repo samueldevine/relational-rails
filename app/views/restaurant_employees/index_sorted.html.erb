@@ -3,15 +3,19 @@
 <h1>Employees of: <%= @restaurant.name %></h1>
 
 <% @restaurant.employees.order(:last_name).each do |employee| %>
+  
   <a href="/employees/<%= employee.id %>"><%= employee.first_name %> <%= employee.last_name %></a>
+
   <ul>
     <% if employee.currently_employed %>    
       <li>Current Employee</li>
       <li>Wage: $<%= employee.wage %> per hour</li>
     <% else %>
-      <li>Former Employee<br>(wages hidden)</li>
+      <li>Former Employee</li>
+      <li>Wage at time of termination: $<%= employee.wage.round(2) %> per hour</li>
     <% end %>
   </ul>
+
 <% end %>
 
 <a href="/restaurants/<%= @restaurant.id %>/employees/new">Create Employee</a>

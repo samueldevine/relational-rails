@@ -32,6 +32,12 @@ class RestaurantsController < ApplicationController
     end
 
     def restaurant_params
+      if params[:restaurant][:liquor_license] == 'Yes'
+        params[:restaurant][:liquor_license] = true
+      else
+        params[:restaurant][:liquor_license] = false
+      end
+
       {
         name:           params[:restaurant][:name],
         liquor_license: params[:restaurant][:liquor_license],
