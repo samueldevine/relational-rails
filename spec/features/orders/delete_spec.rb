@@ -33,5 +33,6 @@ RSpec.describe 'orders delete' do
 
     expect(current_path).to eq('/orders')
     expect(page).to_not have_content(@order_1.special_instructions)
+    expect(page).to_not have_link('Delete Order')
   end
 end

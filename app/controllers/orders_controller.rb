@@ -26,6 +26,8 @@ class OrdersController < ApplicationController
     def order_params
       if params[:order][:paid] == 'Yes'
         params[:order][:paid] = true
+      else
+        params[:order][:paid] = false
       end
       params.require(:order).permit(:special_instructions, :number_of_items, :paid)
     end

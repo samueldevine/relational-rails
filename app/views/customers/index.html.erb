@@ -2,10 +2,8 @@
 <a href="/orders">Orders</a><br>
 <a href="/customers">Customers</a><hr>
 
-<br>
-<br>
 
-<h1>All Our Wonderful Customers!</h1>
+<h1>Our Wonderful Customers!</h1>
 <hr>
 <% @customers.order(created_at: :desc).each do |customer| %>
   <h3><a href="/customers/<%= customer.id %>"><%= customer.first_name %> <%= customer.last_name %></a> Joined on: <%= customer.created_at %></h3>
