@@ -6,7 +6,8 @@
     <li>Current Employee</li>
     <li>Wage: $<%= @employee.wage %> per hour</li>
   <% else %>
-    <li>Former Employee<br>(wages hidden)</li>
+    <li>Former Employee</li>
+    <li>Wage at time of termination: $<%= @employee.wage %> per hour</li>
   <% end %>
 </ul>
 

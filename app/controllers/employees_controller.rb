@@ -24,11 +24,11 @@ class EmployeesController < ApplicationController
     end
 
     def employee_params
-      # if params[:employee][:currently_employed] == 'Yes'
-      #   current = true
-      # else
-      #   current = false
-      # end
+      if params[:employee][:currently_employed] == 'Yes'
+        params[:employee][:currently_employed] = true
+      else
+        params[:employee][:currently_employed] = false
+      end
 
       {
         first_name:         params[:employee][:first_name],

@@ -9,12 +9,7 @@ class RestaurantEmployeesController < ApplicationController
 
   def create
     restaurant = find_restaurant
-    restaurant.employees.create({
-      first_name:         params[:employee][:first_name],
-      last_name:          params[:employee][:last_name],
-      currently_employed: params[:employee][:currently_employed],
-      wage:               params[:employee][:wage]
-    })
+    restaurant.employees.create(employee_params)
     redirect_to "/restaurants/#{restaurant.id}/employees"
   end
 
@@ -28,6 +23,12 @@ class RestaurantEmployeesController < ApplicationController
     end
 
     def employee_params
+      if params[:employee][:currently_employed] == 'Yes'
+        params[:employee][:currently_employed] = true
+      else
+        params[:employee][:currently_employed] = false
+      end
+      
       {
         first_name:         params[:employee][:first_name],
         last_name:          params[:employee][:last_name],
