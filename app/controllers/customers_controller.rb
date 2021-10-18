@@ -25,6 +25,11 @@ class CustomersController < ApplicationController
     @customer = Customer.find(params[:id])
   end
 
+  def destroy
+    Customer.destroy(params[:id])
+    redirect_to '/customers'
+  end
+
   private
     def customer_params
       if params[:customer][:over_21] == 'Yes'
