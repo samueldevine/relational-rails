@@ -3,9 +3,13 @@
 <h1>All Restaurants</h1>
 
 <% @restaurants.order(created_at: :desc).each do |restaurant| %>
-  <h4><%= link_to restaurant.name, "/restaurants/#{restaurant.id}" %> --- <%= link_to 'Edit', "/restaurants/#{restaurant.id}/edit" %></h4>
+  
+  <h4><%= link_to restaurant.name, "/restaurants/#{restaurant.id}" %> --- 
+  <%= link_to 'Edit', "/restaurants/#{restaurant.id}/edit" %></h4>
+
   <p>Created at: <%= restaurant.created_at %></p>
+  
   <hr>
 <% end %>
 
-<h2><a href="/restaurants/new">New Restaurant</a></h2>
+<h3><a href="/restaurants/new">New Restaurant</a></h3>
