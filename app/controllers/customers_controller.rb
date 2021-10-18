@@ -27,10 +27,9 @@ class CustomersController < ApplicationController
 
   private
     def customer_params
+      if params[:customer][:over_21] == 'No'
+        params[:customer][:over_21] = false
+      end
       params.require(:customer).permit(:first_name, :last_name, :address, :over_21, :rewards)
-    end
-
-    def to_boolean(over_21)
-      over_21 == 'true'
     end
 end
