@@ -44,7 +44,7 @@ RSpec.describe 'Employee Update' do
     expect(page).to have_content 'Thompson'
     expect(page).to have_content 'Current Employee'
     expect(page).to have_content 23.65
-    
+
     visit "/employees/#{@employee_2.id}/edit"
     fill_in 'employee[first_name]', with: 'Michael'
     fill_in 'employee[last_name]', with: 'Jackson'

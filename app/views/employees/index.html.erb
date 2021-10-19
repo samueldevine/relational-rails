@@ -5,8 +5,9 @@
 <% @employees.each do |employee| %>
   
   <h4><a href="/employees/<%= employee.id %>"><%= employee.first_name %> 
-  <%= employee.last_name %></a> ---
-  <%= link_to 'Edit',"/employees/#{employee.id}/edit" %></h4>
+  <%= employee.last_name %></a> |
+  <%= link_to 'Edit', "/employees/#{employee.id}/edit" %> |
+  <%= link_to 'Delete', "/employees/#{employee.id}", method: :delete %></h4>
 
   <ul>
     <li>Current Employee</li>

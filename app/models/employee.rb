@@ -1,3 +1,3 @@
 class Employee < ApplicationRecord
-    belongs_to :restaurant
+  belongs_to :restaurant
 end
