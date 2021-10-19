@@ -1,17 +1,15 @@
-<form action="/employees/<%= @employee.id %>" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="hidden" name="_method" value="patch">
-  <p>Update this employee's information below:</p>
-  <p>First Name</p>
-  <input type='text' name='employee[first_name]'>
-  <p>Last Name</p>
-  <input type='text' name='employee[last_name]'>
-  <p>Does this employee currently work for the restaurant?</p>
-  <input type='radio' name='employee[currently_employed]' value='Yes'>
-    <label for='Yes'>Yes</label><br>
-  <input type='radio' name='employee[currently_employed]' value='No'>
-    <label for='No'>No</label><br>
-  <p>What is this employee's wage?</p>
-  <input type='float' name='employee[wage]'><br/>
-  <input type='submit' name='Update Employee'/>
-</form>
+<%= form_with model: @employee, url: "/employees/#{@employee.id}", method: :patch do |form| %>
+  <%= form.label :title, "Update this employee's information below." %><br><br>
+  <%= form.label :first_name, 'First Name:' %><br>
+  <%= form.text_field :first_name %><br>
+  <%= form.label :last_name, 'Last Name:' %><br>
+  <%= form.text_field :last_name %><br>
+  <%= form.label :currently_employed, 'Does this employee currently work for the restaurant?' %><br>
+  <%= form.label :currently_employed_true, 'Yes' %>
+  <%= form.radio_button :currently_employed, true %><br>
+  <%= form.label :currently_employed_false, 'No' %>
+  <%= form.radio_button :currently_employed, false %><br>
+  <%= form.label :wage, 'Wage:' %><br>
+  $<%= form.number_field :wage, in: 15.0..100.00, step: 0.01 %> per hour<br>
+  <%= form.submit 'Update Employee' %>
+<% end %>

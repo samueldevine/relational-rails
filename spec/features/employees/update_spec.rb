@@ -33,10 +33,10 @@ RSpec.describe 'Employee Update' do
 
   it 'updates the employee record' do
     visit "/employees/#{@employee_1.id}/edit"
-    fill_in 'employee[first_name]', with: 'Pichael'
-    fill_in 'employee[last_name]', with: 'Thompson'
-    choose 'employee[currently_employed]', option: 'Yes'
-    fill_in 'employee[wage]', with: 23.65
+    fill_in 'First Name:', with: 'Pichael'
+    fill_in 'Last Name:', with: 'Thompson'
+    choose 'Yes'
+    fill_in 'Wage:', with: 23.65
     click_on 'Update Employee'
 
     expect(current_path).to eq "/employees/#{@employee_1.id}"
@@ -46,10 +46,10 @@ RSpec.describe 'Employee Update' do
     expect(page).to have_content 23.65
 
     visit "/employees/#{@employee_2.id}/edit"
-    fill_in 'employee[first_name]', with: 'Michael'
-    fill_in 'employee[last_name]', with: 'Jackson'
-    choose 'employee[currently_employed]', option: 'No'
-    fill_in 'employee[wage]', with: 30.00
+    fill_in 'First Name:', with: 'Michael'
+    fill_in 'Last Name:', with: 'Jackson'
+    choose 'No'
+    fill_in 'Wage:', with: 30.00
     click_on 'Update Employee'
 
     expect(current_path).to eq "/employees/#{@employee_2.id}"
