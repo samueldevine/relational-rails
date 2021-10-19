@@ -5,9 +5,8 @@
 
 <h1>Order Up!</h1>
 
-<% @orders.where(paid: true).each do |order| %>
+<% @orders.paid.each do |order| %>
 <h3>Order #:<%= link_to "#{order.id}", "/orders/#{order.id}" %>
-  <br>Special Instructions: <%= order.special_instructions %></h3>
+<br>Special Instructions: <%= order.special_instructions %></h3>
 <%= link_to "Update Order", "/orders/#{order.id}/edit" %> | <%= link_to "Delete Order", "/orders/#{order.id}", method: :delete %><hr>
-
 <% end %>

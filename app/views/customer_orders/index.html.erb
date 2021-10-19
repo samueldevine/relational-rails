@@ -11,7 +11,7 @@
   </p>
 <%= link_to "Delete Order", "/orders/#{order.id}", method: :delete %>
 <% end %>
-<p><%= link_to "Sort Alphabetically by Special Instructions", "/customers/#{@customer.id}/orders/alpha_sorted" %>
+<p><%= link_to "Sort Alphabetically by Special Instructions", "/customers/#{@customer.id}/orders/sorted" %>
 <br>
 <br>
 <%= link_to "Create Order", "/customers/#{@customer.id}/orders/new" %></p>

@@ -9,7 +9,7 @@
   <%= @customer.address %><br>
   <%= @customer.over_21 %><br>
   Rewards Points:<%= @customer.rewards %><br>
-  Total Orders: <%= @customer.orders.count %><br>
+  Total Orders: <%= @customer.number_of_orders %><br>
   <a href="/customers/<%= @customer.id %>/orders"</a>View Orders
 </p>
 <a href="/customers/<%= @customer.id %>/edit">Update Customer</a>

@@ -10,13 +10,13 @@ class CustomerOrdersController < ApplicationController
 
   def create
     @customer = Customer.find(params[:id])
-    new_order = @customer.orders.create(order_params)
+    @customer.orders.create(order_params)
     redirect_to "/customers/#{@customer.id}/orders"
   end
 
-  def index_sorted
-    @customer = Customer.find(params[:id])
-  end
+  # def index_sorted
+  #   @customer = Customer.find(params[:id])
+  # end
 
   private
     def order_params
