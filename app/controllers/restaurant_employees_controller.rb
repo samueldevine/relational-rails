@@ -17,6 +17,10 @@ class RestaurantEmployeesController < ApplicationController
     @restaurant = find_restaurant
   end
 
+  def index_filtered
+    @restaurant = find_restaurant
+  end
+
   private
     def find_restaurant
       Restaurant.find(params[:restaurant_id])
