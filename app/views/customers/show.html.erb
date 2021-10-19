@@ -13,3 +13,4 @@
   <a href="/customers/<%= @customer.id %>/orders"</a>View Orders
 </p>
 <a href="/customers/<%= @customer.id %>/edit">Update Customer</a>
+<%= link_to 'Delete Customer', "/customers/#{@customer.id}", method: :delete %>

@@ -7,15 +7,7 @@ class CustomersController < ApplicationController
   end
 
   def create
-    customer = Customer.new({
-      first_name: params[:customer][:first_name],
-      last_name: params[:customer][:last_name],
-      address: params[:customer][:address],
-      over_21: params[:customer][:over_21],
-      rewards: params[:customer][:rewards]
-      })
-
-    customer.save
+    customer = Customer.create(customer_params)
     redirect_to '/customers'
   end
 
@@ -25,18 +17,26 @@ class CustomersController < ApplicationController
 
   def update
     customer = Customer.find(params[:id])
-    customer.update({
-      first_name: params[:customer][:first_name],
-      last_name: params[:customer][:last_name],
-      address: params[:customer][:address],
-      over_21: params[:customer][:over_21],
-      rewards: params[:customer][:rewards]
-      })
-    customer.save
+    customer.update(customer_params)
     redirect_to "/customers/#{customer.id}"
   end
 
   def show
     @customer = Customer.find(params[:id])
   end
+
+  def destroy
+    Customer.destroy(params[:id])
+    redirect_to '/customers'
+  end
+
+  private
+    def customer_params
+      if params[:customer][:over_21] == 'true'
+        params[:customer][:over_21] = true
+      else
+        params[:customer][:over_21] = false
+      end
+      params.require(:customer).permit(:first_name, :last_name, :address, :over_21, :rewards)
+    end
 end

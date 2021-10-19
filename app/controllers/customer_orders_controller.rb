@@ -10,16 +10,21 @@ class CustomerOrdersController < ApplicationController
 
   def create
     @customer = Customer.find(params[:id])
-    new_order = @customer.orders.create!({
-      special_instructions: params[:order][:special_instructions],
-      number_of_items: params[:order][:number_of_items],
-      paid: params[:order][:paid]
-      })
-    new_order.save
+    new_order = @customer.orders.create(order_params)
     redirect_to "/customers/#{@customer.id}/orders"
   end
 
   def index_sorted
     @customer = Customer.find(params[:id])
   end
+
+  private
+    def order_params
+      if params[:order][:paid] == 'Yes'
+        params[:order][:paid] = true
+      else 
+        params[:order][:paid] = false
+      end
+      params.require(:order).permit(:special_instructions, :number_of_items, :paid)
+    end
 end

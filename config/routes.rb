@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get  '/customers/:id',       to: 'customers#show'
   get   '/customers/:id/edit', to: 'customers#edit'
   patch '/customers/:id',      to: 'customers#update'
+  delete '/customers/:id',     to: 'customers#destroy'
 
   get  '/customers/:id/orders',             to: 'customer_orders#index'
   get  '/customers/:id/orders/new',         to: 'customer_orders#new'
@@ -18,6 +19,7 @@ Rails.application.routes.draw do
   get   '/orders/:id',      to: 'orders#show'
   get   '/orders/:id/edit', to: 'orders#edit'
   patch '/orders/:id',      to: 'orders#update'
+  delete '/orders/:id',     to: 'orders#destroy'
 
   get '/restaurants', to: 'restaurants#index'
   get '/restaurants/new', to: 'restaurants#new'
