@@ -6,11 +6,12 @@
 <h1>Order history for: <%= @customer.first_name %></h1>
 
 <% @order.each do |order| %>
-  <p><a href="/orders/<%= order.id %>"><%= order.id %></a>
+  <p>Order ID: #<%=link_to "#{order.id}", "/orders/#{order.id}" %><br>
     Special Instructions: <%= order.special_instructions %>
   </p>
 <%= link_to "Delete Order", "/orders/#{order.id}", method: :delete %>
 <% end %>
-<p><a href="/customers/<%= @customer.id %>/orders/alpha_sorted">Sort Alphabetically by Special Instructions</a><br>
+<p><%= link_to "Sort Alphabetically by Special Instructions", "/customers/#{@customer.id}/orders/alpha_sorted" %>
 <br>
-<a href="/customers/<%= @customer.id %>/orders/new">Create Order</a></p>
+<br>
+<%= link_to "Create Order", "/customers/#{@customer.id}/orders/new" %></p>

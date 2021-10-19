@@ -4,8 +4,8 @@
 <h1>Order history for: <%= @customer.first_name %></h1>
 
 <% @customer.orders.order(:special_instructions).each do |order| %>
-  <p><a href="/orders/<%= order.id %>"><%= order.id %></a>
+  <p><%=link_to "Order Id:", "/orders/#{order.id}" %><%= order.id %>
     Special Instructions: <%= order.special_instructions %>
   </p>
 <% end %>
-<a href="/customers/<%= @customer.id %>/orders/new">Create Order</a>
+<%= link_to "Create Order", "/customers/#{@customer.id}/orders/new" %>
