@@ -9,4 +9,4 @@
   Paid?: <%= @order.paid %><br>
 </p>
 <a href="/orders/<%= @order.id %>/edit">Update Order</a>
-<%= link_to 'Delete Order', "/orders/#{@order.id}/delete" %>
+<%= link_to 'Delete Order', "/orders/#{@order.id}", method: :delete %>
