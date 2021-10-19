@@ -1,9 +1,9 @@
-<a href="/">Back to Main Page</a> | <a href="/restaurants">All Restaurants</a> | <a href="/employees">All Employees</a>
+<%= link_to 'Back to Main Page', '/' %> | <%= link_to 'All Restaurants', '/restaurants' %> | <%= link_to 'All Employees', '/employees' %>
 
 <h1>Employees of: <%= @restaurant.name %></h1>
 
 <% @restaurant.employees.order(:last_name).each do |employee| %>
-  
+
   <a href="/employees/<%= employee.id %>"><%= employee.first_name %> <%= employee.last_name %></a>
 
   <ul>

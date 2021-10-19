@@ -1,3 +1,5 @@
+<%= link_to 'Back to Main Page', '/' %> | <%= link_to 'All Restaurants', '/restaurants' %> | <%= link_to 'All Employees', '/employees' %>
+
 <form action="/restaurants" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <p>Enter a new restaurant:</p>

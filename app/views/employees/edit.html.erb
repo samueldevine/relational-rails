@@ -1,3 +1,5 @@
+<%= link_to 'Back to Main Page', '/' %> | <%= link_to 'All Restaurants', '/restaurants' %> | <%= link_to 'All Employees', '/employees' %>
+
 <%= form_with model: @employee, url: "/employees/#{@employee.id}", method: :patch do |form| %>
   <%= form.label :title, "Update this employee's information below." %><br><br>
   <%= form.label :first_name, 'First Name:' %><br>
