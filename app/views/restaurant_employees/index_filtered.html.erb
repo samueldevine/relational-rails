@@ -2,8 +2,8 @@
 
 <h1>Employees of: <%= @restaurant.name %></h1>
 
-<% @restaurant.employees.each do |employee| %>
-  
+<% @restaurant.employees.where('wage > ?', params[:wage]).each do |employee| %>
+
   <a href="/employees/<%= employee.id %>"><%= employee.first_name %> <%= employee.last_name %></a>
 
   <ul>

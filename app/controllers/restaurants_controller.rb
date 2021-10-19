@@ -25,8 +25,12 @@ class RestaurantsController < ApplicationController
     redirect_to "/restaurants/#{restaurant.id}"
   end
 
+  def destroy
+    Restaurant.destroy(params[:restaurant_id])
+    redirect_to '/restaurants'
+  end
+
   private
-  
     def find_restaurant
       Restaurant.find(params[:restaurant_id])
     end
@@ -37,12 +41,6 @@ class RestaurantsController < ApplicationController
       else
         params[:restaurant][:liquor_license] = false
       end
-
-      {
-        name:           params[:restaurant][:name],
-        liquor_license: params[:restaurant][:liquor_license],
-        menu_items:     params[:restaurant][:menu_items]
-      }
 
       params.require(:restaurant).permit(:name, :liquor_license, :menu_items)
     end
