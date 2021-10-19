@@ -13,9 +13,9 @@ RSpec.describe 'New Restaurant Employee' do
     visit "/restaurants/#{@restaurant.id}/employees"
 
     expect(page).to have_content('Create Employee')
-    
+
     click_on 'Create Employee'
-    
+
     expect(current_path).to eq("/restaurants/#{@restaurant.id}/employees/new")
   end
 

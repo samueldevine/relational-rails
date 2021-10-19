@@ -2,8 +2,15 @@
 
 <h1>Employees of: <%= @restaurant.name %></h1>
 
-<% @restaurant.employees.each do |employee| %>
+<% if params[:wage_filter] %>
+  <% employees = @restaurant.employees.where('wage > ?', params[:wage_filter]) %>
+<% elsif params[:sorted] == 'true' %>
+  <% employees = @restaurant.employees.order(:last_name) %>
+<% else %>
+  <% employees = @restaurant.employees %>
+<% end %>
 
+<% employees.each do |employee| %>
   <%= link_to "#{employee.first_name} #{employee.last_name}", "/employees/#{employee.id}" %>
 
   <ul>
@@ -19,8 +26,8 @@
 <% end %>
 
 <%= link_to 'Create Employee', "/restaurants/#{@restaurant.id}/employees/new" %> |
-<%= link_to 'Sort Employees Alphabetically', "/restaurants/#{@restaurant.id}/employees/alpha_sorted" %> |
-<%= form_with url: "/restaurants/#{@restaurant.id}/employees/wage_filtered", method: :get, local: true do |form| %>
+<%= link_to 'Sort Employees Alphabetically', "/restaurants/#{@restaurant.id}/employees?sorted=true" %> |
+<%= form_with url: "/restaurants/#{@restaurant.id}/employees", method: :get, local: true do |form| %>
   <%= form.submit 'Only return employees that earn more than:' %>
-  <%= form.text_field :wage %>
+  <%= form.number_field :wage_filter, in: 0.00..100.00, step: 0.01, value: 15.00 %>
 <% end %>
