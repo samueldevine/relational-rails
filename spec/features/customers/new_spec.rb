@@ -15,7 +15,6 @@ RSpec.describe 'customer create' do
     fill_in 'customer[address]', with: '1234 Cool Guy Lane'
     select "Yes", :from => "over_21"
     fill_in 'customer[rewards]', with: '1000'
-
     expect(current_path).to eq "/customers/new"
   end
 
@@ -28,8 +27,8 @@ RSpec.describe 'customer create' do
     select "Yes", :from => "over_21"
     fill_in 'customer[rewards]', with: '1000'
     click_button "Create Customer"
-    visit '/customers'
 
+    expect(current_path).to eq "/customers"
     expect(page).to have_content("Chaz Simons")
     expect(page).to_not have_content("1234 Cool Guy Lane")
   end

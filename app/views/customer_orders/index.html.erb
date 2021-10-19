@@ -9,6 +9,8 @@
   <p><a href="/orders/<%= order.id %>"><%= order.id %></a>
     Special Instructions: <%= order.special_instructions %>
   </p>
+<%= link_to "Delete Order", "/orders/#{order.id}", method: :delete %>
 <% end %>
-<a href="/customers/<%= @customer.id %>/orders/alpha_sorted">Sort Alphabetically by Special Instructions</a><br>
-<a href="/customers/<%= @customer.id %>/orders/new">Create Order</a>
+<p><a href="/customers/<%= @customer.id %>/orders/alpha_sorted">Sort Alphabetically by Special Instructions</a><br>
+<br>
+<a href="/customers/<%= @customer.id %>/orders/new">Create Order</a></p>
