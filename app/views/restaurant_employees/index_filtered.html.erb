@@ -4,7 +4,7 @@
 
 <% @restaurant.employees.where('wage > ?', params[:wage]).each do |employee| %>
 
-  <a href="/employees/<%= employee.id %>"><%= employee.first_name %> <%= employee.last_name %></a>
+  <%= link_to "#{employee.first_name} #{employee.last_name}", "/employees/#{employee.id}" %>
 
   <ul>
     <% if employee.currently_employed %>    
@@ -18,8 +18,8 @@
 
 <% end %>
 
-<a href="/restaurants/<%= @restaurant.id %>/employees/new">Create Employee</a> |
-<a href="/restaurants/<%= @restaurant.id %>/employees/alpha_sorted">Sort Employees Alphabetically</a>
+<%= link_to 'Create Employee', "/restaurants/#{@restaurant.id}/employees/new" %> |
+<%= link_to 'Sort Employees Alphabetically', "/restaurants/#{@restaurant.id}/employees/alpha_sorted" %> |
 <%= form_with url: "/restaurants/#{@restaurant.id}/employees/wage_filtered", method: :get, local: true do |form| %>
   <%= form.submit 'Only return employees that earn more than:' %>
   <%= form.text_field :wage %>
