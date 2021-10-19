@@ -36,5 +36,15 @@ RSpec.describe 'Delete Restaurants' do
       expect(page).to_not have_content 'Michael Bluth'
       expect(page).to_not have_content 'Michael Scott'
     end
+
+    it 'I can also delete a restaurant from the restaurants index page' do
+      visit "/restaurants/#{@restaurant.id}"
+
+      click_on 'Delete'
+
+      expect(current_path).to eq '/restaurants'
+      expect(page).to_not have_content 'Watercourse Foods'
+      expect(page).to_not have_content 'Delete'
+    end
   end
 end
