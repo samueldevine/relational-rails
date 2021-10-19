@@ -3,9 +3,9 @@
 <h1>Employees of: <%= @restaurant.name %></h1>
 
 <% if params[:wage_filter] %>
-  <% employees = @restaurant.employees.where('wage > ?', params[:wage_filter]) %>
+  <% employees = @restaurant.wage_filter(params[:wage_filter]) %>
 <% elsif params[:sorted] == 'true' %>
-  <% employees = @restaurant.employees.order(:last_name) %>
+  <% employees = @restaurant.sort_employees_alphabetically %>
 <% else %>
   <% employees = @restaurant.employees %>
 <% end %>
@@ -14,7 +14,7 @@
   <%= link_to "#{employee.first_name} #{employee.last_name}", "/employees/#{employee.id}" %>
 
   <ul>
-    <% if employee.currently_employed %>    
+    <% if employee.currently_employed %>
       <li>Current Employee</li>
       <li>Wage: $<%= employee.wage %> per hour</li>
     <% else %>

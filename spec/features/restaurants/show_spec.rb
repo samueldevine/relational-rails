@@ -13,7 +13,7 @@ RSpec.describe 'Restaurants Show Page' do
       menu_items: 10,
     )
   end
-  
+
   context 'Iteration 1' do
     it "shows a single restaurant's attributes" do
       visit "/restaurants/#{@restaurant_1.id}"
@@ -34,10 +34,10 @@ RSpec.describe 'Restaurants Show Page' do
 
       expect(page).to have_content("Number of employees: 3")
     end
-    
+
     it 'links to the restaurant_employees index' do
       visit "/restaurants/#{@restaurant_1.id}"
-      
+
       click_on "All #{@restaurant_1.name} Employees"
 
       expect(current_path).to eq("/restaurants/#{@restaurant_1.id}/employees")

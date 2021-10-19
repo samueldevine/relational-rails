@@ -1,6 +1,6 @@
 class EmployeesController < ApplicationController
   def index
-    @employees = Employee.all.where(currently_employed: true)
+    @employees = Employee.currently_employed
   end
 
   def show

@@ -3,7 +3,7 @@
 <h1><%= @restaurant.name %></h1>
 <p>Serves Alcohol? <%= @restaurant.liquor_license %></p>
 <p>Number of menu items: <%= @restaurant.menu_items %></p>
-<p>Number of employees: <%= @restaurant.employees.count %></p>
+<p>Number of employees: <%= @restaurant.employee_count %></p>
 <p><%= link_to "All #{@restaurant.name} Employees", "/restaurants/#{@restaurant.id}/employees" %></p>
 
 <%= link_to "Update #{@restaurant.name}", "/restaurants/#{@restaurant.id}/edit" %>

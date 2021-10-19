@@ -5,9 +5,9 @@ RSpec.describe 'New Restaurant' do
     visit '/restaurants'
 
     expect(page).to have_content('New Restaurant')
-    
+
     click_on 'New Restaurant'
-    
+
     expect(current_path).to eq("/restaurants/new")
   end
 

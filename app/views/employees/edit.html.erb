@@ -1,7 +1,7 @@
 <%= link_to 'Back to Main Page', '/' %> | <%= link_to 'All Restaurants', '/restaurants' %> | <%= link_to 'All Employees', '/employees' %>
-
+<hr>
 <%= form_with model: @employee, url: "/employees/#{@employee.id}", method: :patch, local: true do |form| %>
-  <%= form.label :title, "Update this employee's information below." %><br><br>
+  <h4><%= form.label :title, "Update this employee's information below." %></h4>
   <%= form.label :first_name, 'First Name:' %><br>
   <%= form.text_field :first_name %><br>
   <%= form.label :last_name, 'Last Name:' %><br>
@@ -11,9 +11,9 @@
   <%= form.label :currently_employed_true, 'Yes' %>
   <%= form.radio_button :currently_employed, true %><br>
   <%= form.label :currently_employed_false, 'No' %>
-  <%= form.radio_button :currently_employed, false %><br>
+  <%= form.radio_button :currently_employed, false %><br><br>
 
   <%= form.label :wage, 'Wage:' %><br>
-  $<%= form.number_field :wage, in: 15.0..100.00, step: 0.01 %> per hour<br>
+  $<%= form.number_field :wage, in: 15.0..100.00, step: 0.01 %> per hour<br><br>
   <%= form.submit 'Update Employee' %>
 <% end %>
