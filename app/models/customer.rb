@@ -8,4 +8,8 @@ class Customer < ApplicationRecord
   def number_of_orders
     orders.count
   end
+
+  def sort_by_alphabet
+    orders.order(special_instructions: :asc)
+  end
 end

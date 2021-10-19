@@ -4,6 +4,11 @@
 
 
 <h1>Order history for: <%= @customer.first_name %></h1>
+<%= form_with url:"/customers/#{@customer.id}/orders", method: :get, local: true do |form| %>
+  <%= form.label 'Filter by number of items:' %>
+  <%= form.number_field :threshold, in: 0..100, step: 1, value: 0 %>
+  <%= form.submit 'Filter Results' %>
+<% end %>
 
 <% @order.each do |order| %>
   <p>Order ID: #<%=link_to "#{order.id}", "/orders/#{order.id}" %><br>
@@ -11,7 +16,7 @@
   </p>
 <%= link_to "Delete Order", "/orders/#{order.id}", method: :delete %>
 <% end %>
-<p><%= link_to "Sort Alphabetically by Special Instructions", "/customers/#{@customer.id}/orders/sorted" %>
+<p><%= link_to "Sort Alphabetically by Special Instructions", "/customers/#{@customer.id}/orders?sorted=true" %>
 <br>
 <br>
 <%= link_to "Create Order", "/customers/#{@customer.id}/orders/new" %></p>

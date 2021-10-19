@@ -6,11 +6,11 @@
 <h1>Our Wonderful Customers!</h1>
 <hr>
 <% @customers.sort_by_created_at.each do |customer| %>
-  <h3>ID #:<%= link_to "#{customer.id}", "/customers/#{customer.id}" %>
-    <%= customer.first_name %> <%= customer.last_name %>
-     Joined on: <%= customer.created_at %></h3>
-  <br>
-  <%= link_to "Update Customer", "/customers/#{customer.id}", method: :patch %> | <%= link_to "Delete Customer", "/customers/#{customer.id}", method: :delete %>
+<h3>ID #:<%= link_to "#{customer.id}", "/customers/#{customer.id}" %>
+<%= customer.first_name %> <%= customer.last_name %>
+ Joined on: <%= customer.created_at %></h3>
+<br>
+<%= link_to "Update Customer", "/customers/#{customer.id}", method: :patch %> | <%= link_to "Delete Customer", "/customers/#{customer.id}", method: :delete %>
 <hr>
 
 <% end %>

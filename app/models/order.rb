@@ -4,4 +4,5 @@ class Order < ApplicationRecord
   def self.paid
     where(paid: true)
   end
+
 end
