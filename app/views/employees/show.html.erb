@@ -11,4 +11,8 @@
   <% end %>
 </ul>
 
-<a href="/employees/<%= @employee.id %>/edit">Update Employee</a>
+<%= link_to "Update #{@employee.first_name}", "/employees/#{@employee.id}/edit" %>
+
+<br><br>
+
+<%= link_to "Delete Employee", "/employees/#{@employee.id}", method: :delete %>

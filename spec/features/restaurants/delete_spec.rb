@@ -24,7 +24,7 @@ RSpec.describe 'Delete Restaurants' do
   describe 'As a visitor' do
     it 'I can delete a restaurant and all of its employees' do
       visit "/restaurants/#{@restaurant.id}"
-      save_and_open_page
+
       click_on "Delete #{@restaurant.name}"
 
       expect(current_path).to eq '/restaurants'
