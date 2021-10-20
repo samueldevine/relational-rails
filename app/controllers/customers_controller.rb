@@ -4,10 +4,12 @@ class CustomersController < ApplicationController
   end
 
   def new
+    @customer = Customer.new
   end
 
   def create
-    customer = Customer.create(customer_params)
+    # require "pry"; binding.pry
+    @customer = Customer.create(customer_params)
     redirect_to '/customers'
   end
 
@@ -32,11 +34,6 @@ class CustomersController < ApplicationController
 
   private
     def customer_params
-      if params[:customer][:over_21] == 'true'
-        params[:customer][:over_21] = true
-      else
-        params[:customer][:over_21] = false
-      end
       params.require(:customer).permit(:first_name, :last_name, :address, :over_21, :rewards)
     end
 end
