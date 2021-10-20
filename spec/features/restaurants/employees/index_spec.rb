@@ -60,7 +60,7 @@ RSpec.describe "Restaurant's employee index" do
 
     click_on "Sort Employees Alphabetically"
 
-    expect(current_path).to eq "/restaurants/#{@restaurant.id}/employees/alpha_sorted"
+    expect(current_path).to eq "/restaurants/#{@restaurant.id}/employees"
     expect(@ee3.first_name + ' ' + @ee3.last_name).to appear_before(@ee2.first_name + ' ' + @ee2.last_name)
     expect(@ee2.first_name + ' ' + @ee2.last_name).to appear_before(@ee1.first_name + ' ' + @ee1.last_name)
     expect(@ee3.first_name + ' ' + @ee3.last_name).to appear_before(@ee4.first_name + ' ' + @ee4.last_name)
@@ -69,11 +69,11 @@ RSpec.describe "Restaurant's employee index" do
   it 'can filter out employees below a certain wage' do
     visit "restaurants/#{@restaurant.id}/employees"
 
-    fill_in :wage, with: 20.00
+    fill_in :wage_filter, with: 20.00
 
     click_on 'Only return employees that earn more than:'
 
-    expect(current_path).to eq "/restaurants/#{@restaurant.id}/employees/wage_filtered"
+    expect(current_path).to eq "/restaurants/#{@restaurant.id}/employees"
     expect(page).to_not have_content 'Michael Scott'
     expect(page).to have_content 'Michael Jordan'
     expect(page).to have_content 'Michael A'

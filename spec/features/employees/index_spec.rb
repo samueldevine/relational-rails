@@ -22,7 +22,7 @@ RSpec.describe 'Employees Index' do
       restaurant_id: @restaurant.id
     )
   end
-  
+
   it 'lists all employee names' do
     visit '/employees'
 

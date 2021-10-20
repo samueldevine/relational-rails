@@ -1,14 +1,16 @@
-<h1>Come Chow Down With Our Team!</h1>
-
-<ul>
-  <li><a href="/restaurants">Restaurants</a></li>
-  <ul>
-    <!-- might need additional routing later -->
-    <li><a href="/employees">Employees</a></li>
-  </ul>
-  <li><a href="/customers">Customers</a></li>
-  <ul>
-    <!-- might need additional routing later -->
-    <li><a href="/orders">Orders</a></li>
-  </ul>
-</ul>
+<h1>Relational Rails</h1>
+<p>Exploring one to many database relationships in Rails. This application
+is built on Rails version 5.2.5 and PostgreSQL 14 was used to create the
+database. When possible, Rails was used to implement HTML as we greatly
+preferred the built-in form helpers and familiar Ruby syntax over writing
+raw HTML.</p>
+<p>Mod 2 Paired Project | Sam Devine and Chaz Simons | October, 2021</p>
+<%= link_to "Sam's GitHub", 'https://github.com/samueldevine' %> // <%= link_to "Chaz's GitHub", 'https://github.com/chazsimons' %>
+<br><br><hr>
+<h2><i>Come chow down with our team!</i></h2>
+<h3><%= link_to 'Restaurants', '/restaurants' %> // <%= link_to 'Employees', '/employees' %></h3>
+<p>Each restaurant can have many employees.</p>
+<p>Each employee belongs to one restaurant.</p>
+<h3><%= link_to 'Customers', '/customers' %> // <%= link_to 'Orders', '/customers' %></h3>
+<p>Each customer can have many orders.</p>
+<p>Each order belongs to exactly one customer.</p>

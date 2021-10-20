@@ -13,18 +13,18 @@ RSpec.describe 'New Restaurant Employee' do
     visit "/restaurants/#{@restaurant.id}/employees"
 
     expect(page).to have_content('Create Employee')
-    
+
     click_on 'Create Employee'
-    
+
     expect(current_path).to eq("/restaurants/#{@restaurant.id}/employees/new")
   end
 
   it 'has a form that creates a new employee for the restaurant' do
     visit "/restaurants/#{@restaurant.id}/employees/new"
-    fill_in 'employee[first_name]', with: 'Michael'
-    fill_in 'employee[last_name]', with: 'Jackson'
-    choose 'employee[currently_employed]', option: 'Yes'
-    fill_in 'employee[wage]', with: 42.42
+    fill_in 'First Name:', with: 'Michael'
+    fill_in 'Last Name:', with: 'Jackson'
+    choose 'Yes'
+    fill_in 'Wage:', with: 42.42
     click_on 'Create Employee'
     new_ee = Employee.all.where(last_name: 'Jackson')
 
@@ -35,10 +35,10 @@ RSpec.describe 'New Restaurant Employee' do
     expect(new_ee.count).to eq 1
 
     visit "/restaurants/#{@restaurant.id}/employees/new"
-    fill_in 'employee[first_name]', with: 'Michael'
-    fill_in 'employee[last_name]', with: 'Tyson'
-    choose 'employee[currently_employed]', option: 'No'
-    fill_in 'employee[wage]', with: 40.51
+    fill_in 'First Name:', with: 'Michael'
+    fill_in 'Last Name:', with: 'Tyson'
+    choose 'No'
+    fill_in 'Wage:', with: 40.51
     click_on 'Create Employee'
     new_ee = Employee.all.where(last_name: 'Tyson')
 

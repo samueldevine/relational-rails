@@ -5,6 +5,7 @@ class RestaurantEmployeesController < ApplicationController
 
   def new
     @restaurant = find_restaurant
+    @employee = @restaurant.employees.new
   end
 
   def create
@@ -13,26 +14,12 @@ class RestaurantEmployeesController < ApplicationController
     redirect_to "/restaurants/#{restaurant.id}/employees"
   end
 
-  def index_sorted
-    @restaurant = find_restaurant
-  end
-
-  def index_filtered
-    @restaurant = find_restaurant
-  end
-
   private
     def find_restaurant
       Restaurant.find(params[:restaurant_id])
     end
 
     def employee_params
-      if params[:employee][:currently_employed] == 'Yes'
-        params[:employee][:currently_employed] = true
-      else
-        params[:employee][:currently_employed] = false
-      end
-
       params.require(:employee).permit(:first_name, :last_name, :currently_employed, :wage)
     end
 end

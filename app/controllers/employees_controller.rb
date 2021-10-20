@@ -1,6 +1,6 @@
 class EmployeesController < ApplicationController
   def index
-    @employees = Employee.all.where(currently_employed: true)
+    @employees = Employee.currently_employed
   end
 
   def show
@@ -29,12 +29,6 @@ class EmployeesController < ApplicationController
     end
 
     def employee_params
-      if params[:employee][:currently_employed] == 'Yes'
-        params[:employee][:currently_employed] = true
-      else
-        params[:employee][:currently_employed] = false
-      end
-
       params.require(:employee).permit(:first_name, :last_name, :currently_employed, :wage)
     end
 end
