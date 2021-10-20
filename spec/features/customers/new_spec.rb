@@ -10,22 +10,22 @@ RSpec.describe 'customer create' do
   it 'provides a form to create a customer' do
     visit '/customers'
     click_link 'New Customer'
-    fill_in 'First Name', with: 'Chaz'
-    fill_in 'Last Name', with: 'Simons'
-    fill_in 'Address', with: '1234 Cool Guy Lane'
+    fill_in 'First Name:', with: 'Chaz'
+    fill_in 'Last Name:', with: 'Simons'
+    fill_in 'Address:', with: '1234 Cool Guy Lane'
     choose "Yes"
-    fill_in 'Rewards Points', with: '1000'
+    fill_in 'Rewards Points:', with: '1000'
     expect(current_path).to eq "/customers/new"
   end
 
   it 'creates a customer with a click of a button' do
     visit '/customers'
     click_link 'New Customer'
-    fill_in 'First Name', with: 'Chaz'
-    fill_in 'Last Name', with: 'Simons'
-    fill_in 'Address', with: '1234 Cool Guy Lane'
+    fill_in 'First Name:', with: 'Chaz'
+    fill_in 'Last Name:', with: 'Simons'
+    fill_in 'Address:', with: '1234 Cool Guy Lane'
     choose "Yes"
-    fill_in 'Rewards Points', with: '1000'
+    fill_in 'Rewards Points:', with: '1000'
     click_button "Create Customer"
 
     expect(current_path).to eq "/customers"

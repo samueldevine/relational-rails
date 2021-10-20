@@ -4,10 +4,12 @@ class CustomersController < ApplicationController
   end
 
   def new
+    @customer = Customer.new
   end
 
   def create
-    Customer.create(customer_params)
+    # require "pry"; binding.pry
+    @customer = Customer.create(customer_params)
     redirect_to '/customers'
   end
 
@@ -32,6 +34,6 @@ class CustomersController < ApplicationController
 
   private
     def customer_params
-      params.permit(:first_name, :last_name, :address, :over_21, :rewards)
+      params.require(:customer).permit(:first_name, :last_name, :address, :over_21, :rewards)
     end
 end

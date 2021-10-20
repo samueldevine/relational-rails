@@ -1,17 +1,17 @@
 <%= form_with model: @customer, url:"/customers", method: :post, local: true do |form| %>
 <h4><%= form.label :title, 'Enter a new customer:' %></h4>
-<%= form.label :first_name, 'First Name' %><br>
+<%= form.label :first_name, 'First Name:' %><br>
 <%= form.text_field :first_name %><br>
-<%= form.label :last_name, 'Last Name' %><br>
+<%= form.label :last_name, 'Last Name:' %><br>
 <%= form.text_field :last_name %><br>
-<%= form.label :address, 'Address' %><br>
+<%= form.label :address, 'Address:' %><br>
 <%= form.text_area :address %><br>
 <%= form.label :over_21, 'Are they over 21 years of age?' %><br>
 <%= form.label :over_21_true, 'Yes' %><br>
 <%= form.radio_button :over_21, true %><br>
 <%= form.label :over_21_false, 'No' %><br>
 <%= form.radio_button :over_21, false %><br>
-<%= form.label :rewards, 'Rewards Points' %><br>
+<%= form.label :rewards, 'Rewards Points:' %><br>
 <%= form.number_field :rewards, in: 0..5000, step: 25, value: 100 %><br>
 <%= form.submit 'Create Customer' %>
 <% end %>
