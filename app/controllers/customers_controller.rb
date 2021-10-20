@@ -32,11 +32,6 @@ class CustomersController < ApplicationController
 
   private
     def customer_params
-      if params[:customer][:over_21] == 'true'
-        params[:customer][:over_21] = true
-      else
-        params[:customer][:over_21] = false
-      end
-      params.require(:customer).permit(:first_name, :last_name, :address, :over_21, :rewards)
+      params.permit(:first_name, :last_name, :address, :over_21, :rewards)
     end
 end

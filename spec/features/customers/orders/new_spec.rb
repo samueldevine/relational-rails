@@ -19,9 +19,9 @@ RSpec.describe 'Customer Orders Index' do
 
   it 'provides a form for entering a new order' do
     visit "/customers/#{@customer.id}/orders/new"
-    fill_in 'order[special_instructions]', with: 'extra onions'
-    fill_in 'order[number_of_items]', with: '5'
-    select "Yes", :from => "order[paid]"
+    fill_in 'special_instructions', with: 'extra onions'
+    fill_in 'number_of_items', with: '5'
+    choose "Yes"
     click_button "Create Order"
     new_order = Order.all.where(special_instructions: 'extra onions')
 
@@ -40,9 +40,9 @@ RSpec.describe 'Customer Orders Index' do
 
     expect(page).to have_content("Super spicy")
     click_link 'Create Order'
-    fill_in 'order[special_instructions]', with: 'extra onions'
-    fill_in 'order[number_of_items]', with: '5'
-    select "Yes", :from => "order[paid]"
+    fill_in 'special_instructions', with: 'extra onions'
+    fill_in 'number_of_items', with: '5'
+    choose "Yes"
 
     click_button "Create Order"
 

@@ -1,14 +1,13 @@
- <form action="/customers/<%= @customer.id %>/orders" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <p>Enter a new order:</p>
-  <p>Special Instructions:</p>
-  <textarea name='order[special_instructions]'></textarea><br>
-  <p>Number of Items:</p>
-  <input type='number' name='order[number_of_items]'>
-  <p>Paid?:</p>
-  <select id='orders' name='order[paid]'>
-    <option value='true'>Yes</option>
-    <option value='false'>No</option>
-  </select><br>
-  <input type='submit' value="Create Order">
-</form>
+<%= form_with model: @order, url: "/customers/#{@customer.id}/orders", method: :post, local: true do |form| %>
+<h4><%= form.label :title, 'Enter a new order:' %></h4>
+<%= form.label :special_instructions, 'Special Instructions:' %><br>
+<%= form.text_field :special_instructions %><br>
+<%= form.label :number_of_items, 'Number of Items:'%><br>
+<%= form.number_field :number_of_items, in: 0..100, step: 1, value: 1 %><br>
+<%= form.label :paid, 'Order has been paid?:' %><br>
+<%= form.label :paid_true, 'Yes' %><br>
+<%= form.radio_button :paid, true %><br>
+<%= form.label :paid_false, 'No' %><br>
+<%= form.radio_button :paid, false %><br>
+<%= form.submit "Create Order" %>
+<% end %>

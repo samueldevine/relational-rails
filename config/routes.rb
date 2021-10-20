@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   get  '/customers/:id/orders',             to: 'customer_orders#index'
   get  '/customers/:id/orders/new',         to: 'customer_orders#new'
   post '/customers/:id/orders',             to: 'customer_orders#create'
-  # get '/customers/:id/orders/sorted', to: 'customer_orders#index'
 
   get   '/orders',          to: 'orders#index'
   get   '/orders/:id',      to: 'orders#show'
