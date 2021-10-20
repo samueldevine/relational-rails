@@ -12,4 +12,14 @@ class Customer < ApplicationRecord
   def sort_by_alphabet
     orders.order(special_instructions: :asc)
   end
+
+  def filter(params)
+    if params[:sorted] == 'true'
+      sort_by_alphabet
+    elsif params[:threshold]
+      orders.where('number_of_items > ?', params[:threshold])
+    else
+      orders
+    end
+  end
 end
