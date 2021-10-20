@@ -1,13 +1,7 @@
 class CustomerOrdersController < ApplicationController
   def index
     @customer = Customer.find(params[:id])
-    if params[:sorted] == 'true'
-      @order = @customer.sort_by_alphabet
-    elsif params[:threshold]
-      @order = @customer.orders.where('number_of_items > ?', params[:threshold])
-    else
-      @order = @customer.orders
-    end
+    @order = @customer.filter(params)
   end
 
   def new
