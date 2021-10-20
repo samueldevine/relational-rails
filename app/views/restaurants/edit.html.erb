@@ -1,15 +1,17 @@
-<form action="/restaurants/<%= @restaurant.id %>" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="hidden" name="_method" value="patch">
-  <p>Update restaurant:</p>
-  <p>Name</p>
-  <input type='text' name='restaurant[name]'>
-  <p>Can this restaurant serve alcohol?</p>
-  <input type='radio' name='restaurant[liquor_license]' value='Yes'>
-    <label for='Yes'>Yes</label><br>
-  <input type='radio' name='restaurant[liquor_license]' value='No'>
-    <label for='No'>No</label><br>
-  <p>Number of menu items:</p>
-  <input type='integer' name='restaurant[menu_items]'><br/>
-  <input type='submit' name='Update Restaurant'/>
-</form>
+<%= link_to 'Back to Main Page', '/' %> | <%= link_to 'All Restaurants', '/restaurants' %> | <%= link_to 'All Employees', '/employees' %>
+<hr>
+<%= form_with model: @restaurant, url: "/restaurants/#{@restaurant.id}", method: :patch, local: true do |form| %>
+  <h4><%= form.label :title, "Update restaurant:" %></h4>
+  <%= form.label :name, 'Name:' %><br>
+  <%= form.text_field :name %><br><br>
+
+  <%= form.label :liquor_license, 'Can this restaurant serve alcohol?' %><br>
+  <%= form.label :liquor_license_true, 'Yes' %>
+  <%= form.radio_button :liquor_license, true %><br>
+  <%= form.label :liquor_license_false, 'No' %>
+  <%= form.radio_button :liquor_license, false %><br><br>
+
+  <%= form.label :menu_items, 'Number of menu items:' %><br>
+  <%= form.number_field :menu_items, in: 0..1000, step: 1 %><br><br>
+  <%= form.submit 'Update Restaurant' %>
+<% end %>

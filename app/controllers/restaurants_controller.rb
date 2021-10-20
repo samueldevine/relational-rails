@@ -8,8 +8,9 @@ class RestaurantsController < ApplicationController
   end
 
   def new
+    @restaurant = Restaurant.new
   end
-  
+
   def create
     restaurant = Restaurant.create(restaurant_params)
     redirect_to '/restaurants'
@@ -36,12 +37,6 @@ class RestaurantsController < ApplicationController
     end
 
     def restaurant_params
-      if params[:restaurant][:liquor_license] == 'Yes'
-        params[:restaurant][:liquor_license] = true
-      else
-        params[:restaurant][:liquor_license] = false
-      end
-
       params.require(:restaurant).permit(:name, :liquor_license, :menu_items)
     end
 end

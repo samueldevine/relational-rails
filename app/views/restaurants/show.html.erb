@@ -1,9 +1,9 @@
-<a href="/">Back to Main Page</a> | <a href="/restaurants">All Restaurants</a> | <a href="/employees">All Employees</a>
+<%= link_to 'Back to Main Page', '/' %> | <%= link_to 'All Restaurants', '/restaurants' %> | <%= link_to 'All Employees', '/employees' %>
 
 <h1><%= @restaurant.name %></h1>
 <p>Serves Alcohol? <%= @restaurant.liquor_license %></p>
 <p>Number of menu items: <%= @restaurant.menu_items %></p>
-<p>Number of employees: <%= @restaurant.employees.count %></p>
+<p>Number of employees: <%= @restaurant.employee_count %></p>
 <p><%= link_to "All #{@restaurant.name} Employees", "/restaurants/#{@restaurant.id}/employees" %></p>
 
 <%= link_to "Update #{@restaurant.name}", "/restaurants/#{@restaurant.id}/edit" %>

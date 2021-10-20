@@ -1,13 +1,20 @@
-<a href="/">Back to Main Page</a> | <a href="/restaurants">All Restaurants</a> | <a href="/employees">All Employees</a>
+<%= link_to 'Back to Main Page', '/' %> | <%= link_to 'All Restaurants', '/restaurants' %> | <%= link_to 'All Employees', '/employees' %>
 
 <h1>Employees of: <%= @restaurant.name %></h1>
 
-<% @restaurant.employees.each do |employee| %>
-  
-  <a href="/employees/<%= employee.id %>"><%= employee.first_name %> <%= employee.last_name %></a>
+<% if params[:wage_filter] %>
+  <% employees = @restaurant.wage_filter(params[:wage_filter]) %>
+<% elsif params[:sorted] == 'true' %>
+  <% employees = @restaurant.sort_employees_alphabetically %>
+<% else %>
+  <% employees = @restaurant.employees %>
+<% end %>
+
+<% employees.each do |employee| %>
+  <%= link_to "#{employee.first_name} #{employee.last_name}", "/employees/#{employee.id}" %>
 
   <ul>
-    <% if employee.currently_employed %>    
+    <% if employee.currently_employed %>
       <li>Current Employee</li>
       <li>Wage: $<%= employee.wage %> per hour</li>
     <% else %>
@@ -18,9 +25,9 @@
 
 <% end %>
 
-<a href="/restaurants/<%= @restaurant.id %>/employees/new">Create Employee</a> |
-<a href="/restaurants/<%= @restaurant.id %>/employees/alpha_sorted">Sort Employees Alphabetically</a>
-<%= form_with url: "/restaurants/#{@restaurant.id}/employees/wage_filtered", method: :get, local: true do |form| %>
+<%= link_to 'Create Employee', "/restaurants/#{@restaurant.id}/employees/new" %> |
+<%= link_to 'Sort Employees Alphabetically', "/restaurants/#{@restaurant.id}/employees?sorted=true" %> |
+<%= form_with url: "/restaurants/#{@restaurant.id}/employees", method: :get, local: true do |form| %>
   <%= form.submit 'Only return employees that earn more than:' %>
-  <%= form.text_field :wage %>
+  <%= form.number_field :wage_filter, in: 0.00..100.00, step: 0.01, value: 15.00 %>
 <% end %>

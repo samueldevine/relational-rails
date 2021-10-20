@@ -13,7 +13,7 @@ RSpec.describe 'Restaurants Update' do
       menu_items: 10,
     )
   end
-  
+
   it 'is a link on each Restaurant Show page' do
     visit "/restaurants/#{@restaurant.id}"
 
@@ -26,9 +26,10 @@ RSpec.describe 'Restaurants Update' do
 
   it 'has a form that updates the restaurant record when filled out' do
     visit "/restaurants/#{@restaurant_2.id}/edit"
-    fill_in 'restaurant[name]', with: 'Hot Dog Stand'
-    choose 'restaurant[liquor_license]', option: 'No'
-    fill_in 'restaurant[menu_items]', with: 1
+
+    fill_in 'Name:', with: 'Hot Dog Stand'
+    choose 'No'
+    fill_in 'Number of menu items:', with: 1
     click_on "Update Restaurant"
 
     expect(current_path).to eq "/restaurants/#{@restaurant_2.id}"
@@ -37,9 +38,9 @@ RSpec.describe 'Restaurants Update' do
     expect(page).to have_content "Number of menu items: 1"
 
     visit "/restaurants/#{@restaurant.id}/edit"
-    fill_in 'restaurant[name]', with: 'Watercourse Foods'
-    choose 'restaurant[liquor_license]', option: 'Yes'
-    fill_in 'restaurant[menu_items]', with: 16
+    fill_in 'Name:', with: 'Watercourse Foods'
+    choose 'Yes'
+    fill_in 'Number of menu items:', with: 16
     click_on "Update Restaurant"
 
     expect(current_path).to eq "/restaurants/#{@restaurant.id}"
