@@ -13,9 +13,9 @@ RSpec.describe 'New Restaurant' do
 
   it 'has a form that creates a new restaurant record when filled out' do
     visit '/restaurants/new'
-    fill_in 'restaurant[name]', with: 'Test Restaurant'
-    choose 'restaurant[liquor_license]', option: 'Yes'
-    fill_in 'restaurant[menu_items]', with: 5
+    fill_in 'Name:', with: 'Test Restaurant'
+    choose 'Yes'
+    fill_in 'Number of menu items:', with: 5
     click_on 'Create Restaurant'
     new_rest = Restaurant.all.where(name: 'Test Restaurant')
 

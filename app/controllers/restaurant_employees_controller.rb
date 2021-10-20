@@ -5,6 +5,7 @@ class RestaurantEmployeesController < ApplicationController
 
   def new
     @restaurant = find_restaurant
+    @employee = @restaurant.employees.new
   end
 
   def create
@@ -19,12 +20,6 @@ class RestaurantEmployeesController < ApplicationController
     end
 
     def employee_params
-      if params[:employee][:currently_employed] == 'Yes'
-        params[:employee][:currently_employed] = true
-      else
-        params[:employee][:currently_employed] = false
-      end
-
       params.require(:employee).permit(:first_name, :last_name, :currently_employed, :wage)
     end
 end
