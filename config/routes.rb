@@ -20,9 +20,9 @@ Rails.application.routes.draw do
   patch '/orders/:id',      to: 'orders#update'
   delete '/orders/:id',     to: 'orders#destroy'
 
-  get '/restaurants', to: 'restaurants#index'
+  get '/restaurants',     to: 'restaurants#index'
   get '/restaurants/new', to: 'restaurants#new'
-  post '/restaurants', to: 'restaurants#create'
+  post '/restaurants',    to: 'restaurants#create'
   get '/restaurants/:restaurant_id', to: 'restaurants#show'
   get '/restaurants/:restaurant_id/edit', to: 'restaurants#edit'
   patch '/restaurants/:restaurant_id', to: 'restaurants#update'
